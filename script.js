@@ -44,3 +44,4 @@
 
 //EVENTLISTENER randomFact (randomButton):
     //Random data from Random Useless Fact API is displayed on submitPage.html
+$('.dropdown-trigger').dropdown();
