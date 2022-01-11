@@ -1,129 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Linking Materialize Css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Linking Materialize Js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <!-- Linking TextFit -->
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/textFit.js"></script>
-    <!-- linking google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
-    <!-- Linking Custom Css -->
-    <title>Project one</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="./style.css">
+  
+  <title>Document</title>
 </head>
+
 <body>
-    <!-- Web Header (1# container) -->
-    <header class="container" id="one">
-        <div class="row">
-            <!--chrissie sparling - title of smartypants- chrissie -->
-            <h1 class="col s12 center-align">Smarty Pants</h1>
+  <!-- header -->
+  <header class="title-container" id="title">smarty pants</header>
+  <!-- trivia container -->
+  <div class="trivia-container">
+    <div class="page-load">
+      <div class="col s12">
+        <p>this is place holder text to introduce trivia</p>
+        <button class="fact-button"><a class="waves-effect waves-light btn">start trivia</a></button>
+      </div>
+    </div>
+    <!-- trivia drop down -->
+    <div class="trivia-components">
+      <div class="input-field col s12">
+        <select>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+        <label>number of questions</label>
+      </div>
+
+      <div class="input-field col s12">
+        <select>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+        <label>catergory</label>
+      </div>
+
+      <div class="input-field col s12">
+        <select>
+          <option value="" disabled selected>Choose your option</option>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
+        <label>difficulty</label>
+      </div>
+
+        <div class="input-field col s12">
+          <select>
+            <option value="" disabled selected>Choose your option</option>
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </select>
+          <label>type of question</label>
         </div>
-    </header>
-     <!-- Line Break -->
-     <hr class="col s12">
-    <!-- Main Content of Website- Chrissie Sparling -->
-    <main id="main">
-        <!-- trivia Card - chrissie-->
-         <div class="container" id="trivia">
-              <div class="row">
-                <div class="card">
-                    <!-- title card of - chrissie sparling -->
-                        <div class="col s12"><h2>Would you like to play a game of Trivia?</h2>
-                        </div>
-                        <!-- id: random1 / questions/dropdown(hide)/modal -->
-                        <div class="col s6 s6">
-                            <input type="text" id="triviaInput" name="trivia-input" placeholder="questions / drop down menu">
-                              <div class="container">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="random1" data-toggle="dropdown">search</button>
-                                  <ul class="dropdown-menu" role="menu" aria-labelledby="random1">
-                                    <ul class="dropdown">
-                                        <li><a href="#">questionOne</a></li>
-                                        <li><a href="#">questionTwo</a></li>
-                                        <li><a href="#">questionThree</a></li>
-                                        <li><a href="#">questionFour</a></li>
-                                        <li><a href="#">questionFive</a></li>
-                                    </ul>
-                                  </ul>
-                                </div>
-                              </div>
-                                <!--id: menu2 /  question type / modal / Button -->
-                        <div class="col s6 s6">
-                            <input type="text" id="triviaInput" name="trivia-input" placeholder="question type all / drop down menu">
-                              <div class="container">
-                                <button class="btn btn-default dropdown-toggle" type="button" id="menu2" data-toggle="dropdown">search</button>
-                                  <ul class="dropdown-menu" role="menu" aria-labelledby="menu2">
-                                    <ul class="dropdown">
-                                        <li><a href="#">questionOne</a></li>
-                                        <li><a href="#">questionTwo</a></li>
-                                        <li><a href="#">questionThree</a></li>
-                                        <li><a href="#">questionFour</a></li>
-                                        <li><a href="#">questionFive</a></li>
-                                    </ul>
-                                  </ul>
-                                </div>
-                              </div>
-                              <!--id: menu3 / catergory- random / modal / button  -->
-                              <div class="col s6 s6">
-                                <input type="text" id="triviaInput" name="trivia-input" placeholder="cagtegory/random / drop down menu">
-                                  <div class="container">
-                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu3" data-toggle="dropdown">search</button>
-                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu3">
-                                        <ul class="dropdown">
-                                            <li><a href="#"></a></li>
-                                            <li><a href="#">random</a></li>
-                                            <li><a href="#">random</a></li>
-                                            <li><a href="#">random</a></li>
-                                            <li><a href="#">random</a></li>
-                                        </ul>
-                                      </ul>
-                                    </div>
-                                  </div>
-                               <!-- id: menu4 / difficulty level/ modal/ button -->
-                              <div class="col s6 s6">
-                                  <input type="text" id="triviaInput" name="trivia-input" placeholder="difficulty-  / drop down menu">
-                                    <div class="container">
-                                      <button class="btn btn-default dropdown-toggle" type="button" id="menu4" data-toggle="dropdown">search</button>
-                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu4">
-                                          <ul class="dropdown">
-                                              <li><a href="#">easy</a></li>
-                                              <li><a href="#">medium</a></li>
-                                              <li><a href="#">hard</a></li>
-                                          </ul>
-                                        </ul>
-                                      </div>
-                                    </div>
-                </div>
-            </div>
-         </div>
-                        <!-- modals -->
-        <br>
-                <!-- RANDOM FACTS/modal-chrissie -->
-<div class="container" id="random-fact">
-    <div class="row">
-        <div class="card">
-            <!-- title card of - chrissie sparling -->
-                <div class="col s12"><h2>random fact</h2>
-                    <p>Need some help? Use a life line to get a random fact generated and hope it helps.</p>
-                </div>
-                <!-- id: random1 / random fact generate /dropdown(hide)/modal -->
-                <div class="col s3 s6 s3">
-                    <input type="text" id="randomFact" name="random-fact" placeholder="random-fact/ drop down menu">
-                      <div class="container">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="random1" data-toggle="dropdown">search</button>
-                          <ul class="dropdown-menu" role="menu" aria-labelledby="random1">
-                            <ul class="dropdown">
-                                <li><a href="#">questionOne</a></li>
-                                <li><a href="#">questionTwo</a></li>
-</div>
-</div>
-          <!-- Linking Materialize Js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js"></script>
+
+        </div>
+    
+    <div></div>
+
+  </div>
+            <!-- page 2 -->
+
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"></script>
+  <script src="./script.js"></script>
 </body>
+
 </html>

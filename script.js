@@ -1,4 +1,6 @@
-//VAR scoreData =
+
+
+  //VAR scoreData =
 
 //FUNCTION motd: When I load the page
     //Random fact is pulled from API
