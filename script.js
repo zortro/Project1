@@ -87,7 +87,7 @@ $(document).ready(function(){
   var questionEl = document.querySelector('#question-text')
   var answerBtns = document.querySelectorAll('.answer-btn')
   
-  var triviaUrl = 'https://opentdb.com/api.php?amount=';
+  var triviaUrl
   var factUrl = 'https://uselessfacts.jsph.pl/random.json?language=en';
   
   var questionBank = []
@@ -100,6 +100,8 @@ $(document).ready(function(){
   
   function fetchQuestions() {
   //    https://opentdb.com/api.php?amount=10&category=10&difficulty=medium&type=multiple --example url 
+     triviaUrl = 'https://opentdb.com/api.php?amount=';
+     questionBank = [];
       var number = $('#questions-number').val()
       var cat = $('#category').val()
       var diff = $('#difficulty').val()
