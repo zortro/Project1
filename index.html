@@ -1,68 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link rel="stylesheet" href="./style.css">
-  
-  <title>Document</title>
-</head>
+    <title>Document</title>
+  </head>
 
-<body>
-  <!-- header -->
-  <header class="title-container" id="title">smarty pants</header>
-  <!-- trivia container -->
-  <div class="trivia-container">
+  <body>
+    <!-- header/navbar -->
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">"Smarty Pants" Name Placeholder</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#">High Scores</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <!-- on page load -->
+
     <div class="page-load">
-      <div class="col s12">
-        <p>this is place holder text to introduce trivia</p>
-        <button class="fact-button"><a class="waves-effect waves-light btn">start trivia</a></button>
+      <div class="row">
+        <div class="col s12 m8">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Welcome to our Trivia</span>
+              <p>To play our trivia, you need to make some selections</p>
+              <button class="fact-button">
+                <a class="waves-effect waves-light btn">Make my Selections</a>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- No. of questions input field -->
-    <div class="input-field col s6">
-      <input placeholder="1-50" id="questions-number" type="text" class="validate">
-      <label for="first_name">No. of Questions</label>
-    </div>
-    <!-- Categories drop down -->
-    <div class="input-field col s12">
-      <select>
-        <option value="" disabled selected>Choose your Category</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
-      </select>
-      <label>Categories</label>
-    </div>
-    <!--Difficulty drop down -->
-    <div class="input-field col s12">
-      <select>
-        <option value="" disabled selected>Select Difficulty</option>
-        <option value="1">Easy</option>
-        <option value="2">Medium</option>
-        <option value="3">Hard</option>
-        <option value="4">Any</option>
-      </select>
-      <label>Difficulty</label>
-    </div>
-    <!-- Type of questions drop down -->
-    <div class="input-field col s12">
-      <select>
-        <option value="" disabled selected>Choose your option</option>
-        <option value="1">Multiple Choice</option>
-        <option value="2">True or False</option>
-        <option value="3">Any</option>
-      </select>
-      <label>Materialize Select</label>
-    </div>
-    
 
-  </div>
-            <!-- page 2 -->
+    <!-- trivia selections container -->
+    <div class="trivia-selections">
+      <div class="row">
+        <div class="col s12 m8">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Make your Trivia Selections</span>
+              <!-- No. of questions input field -->
+              <input
+                placeholder="1-50"
+                id="questions-number"
+                type="number"
+                min="1"
+                max="50"
+                class="validate"
+                required
+              />
+              <p>Number of Questions</p>
+              <!-- Categories drop down -->
+              <select class="test">
+                <option value="0">Any Category</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <label for="test">test</label>
+              </select>
+              <p>Trivia Category</p>
+              <!--Difficulty drop down -->
+              <select>
+                <option value="0">Any Difficulty</option>
+                <option value="1">Easy</option>
+                <option value="2">Medium</option>
+                <option value="3">Hard</option>
+              </select>
+              <p>Trivia Difficulty</p>
+              <!-- Type of questions drop down -->
+              <select>
+                <option value="0" disabled selected>Any type of Question</option>
+                <option value="1">Multiple Choice</option>
+                <option value="2">True or False</option>
+              </select>
+              <p>Type of Question</p>
+              <!-- start trivia button -->
+              <button class="start-button">
+                <a class="waves-effect waves-light btn">Start Trivia</a>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- "game play" page -->
+
+    <div class="game-play">
+      <div class="row">
+        <div class="col s12 m8">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">Question goes here</span>
+              <button
+                class="btn waves-effect waves-light"
+                name="action">
+                Answer 1
+              </button>
+              <button
+                class="btn waves-effect waves-light"
+                name="action">
+                Answer 2
+              </button>
+              <button
+                class="btn waves-effect waves-light"
+                name="action">
+                Answer 3
+              </button>
+              <button
+                class="btn waves-effect waves-light"
+                name="action">
+                Answer 4
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- "end of game" page-->
 
@@ -72,45 +137,67 @@
           <div class="card blue-grey darken-1">
             <div class="card-content white-text">
               <span class="card-title">Game Over</span>
-              <p class="your-score-is">You answered 10 out of 20 questions correctly(this will be replaced in JS)</p>
-              <p class="score-percentage">Your score is 50% (this will be replaced by JS)</p>
-              <input placeholder="enter your name" id="score-name" type="text" class="validate" size="10">
-              <button class="btn waves-effect waves-light" type="submit" name="action">Submit Score</button>
+              <p class="your-score-is">
+                You answered 10 out of 20 questions correctly(this will be
+                replaced in JS)
+              </p>
+              <p class="score-percentage">
+                Your score is 50% (this will be replaced by JS)
+              </p>
+              <input
+                placeholder="enter your name"
+                id="score-name"
+                type="text"
+                class="validate"
+                size="10"
+              />
+              <button
+                class="btn waves-effect waves-light"
+                type="submit"
+                name="action"
+              >
+                Submit Score
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- "high scores" page-->
 
-        <!-- "high scores" page-->
-
-        <div class="high-scores">
-          <div class="row">
-            <div class="col s12 m8">
-              <div class="card blue-grey darken-1">
-                <div class="card-content white-text">
-                  <span class="card-title">High Scores</span>
-                  <ul class="stored-scores">
-                    <li>placeholder score</li>
-                    <li>placeholder score</li>
-                    <li>placeholder score</li>
-                  </ul>
-                </div>
-              </div>
-              <button class="btn waves-effect waves-light clear-scores-btn" name="action">Clear Scores
-              </button>
-              <button class="btn waves-effect waves-light play-again-btn" name="action">Play Again?
-              </button>
+    <div class="high-scores">
+      <div class="row">
+        <div class="col s12 m8">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">High Scores</span>
+              <ul class="stored-scores">
+                <li>placeholder score</li>
+                <li>placeholder score</li>
+                <li>placeholder score</li>
+              </ul>
             </div>
           </div>
+          <button
+            class="btn waves-effect waves-light clear-scores-btn"
+            name="action"
+          >
+            Clear Scores
+          </button>
+          <button
+            class="btn waves-effect waves-light play-again-btn"
+            name="action"
+          >
+            Play Again?
+          </button>
         </div>
+      </div>
+    </div>
 
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="./script.js"></script>
-</body>
-
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
 </html>
