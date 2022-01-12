@@ -49,3 +49,18 @@ $('.dropdown-trigger').dropdown();
 $(document).ready(function(){
     $('select').formSelect();
 })
+
+$(document).ready(function(){
+    function openModal() {
+        $('.modal').modal();
+        $('.modal').modal('open')
+    }
+    function askMore() {
+        $('.modal').modal();
+        $('.modal').modal('close')
+        openModal()
+    }
+
+    document.querySelector('.modal-trigger').addEventListener('click', openModal)
+    document.querySelector('.ask-more').addEventListener('click', askMore)
+  });
