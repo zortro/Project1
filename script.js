@@ -51,8 +51,10 @@ $(document).ready(function(){
 })
 
 //Modal -Ben
+var hints = 0 // variable to keep track of hints asked for
 $(document).ready(function(){
     function openModal() {
+        hints ++
         $('.modal').modal();
         $('.modal').modal('open')
         fetch(factUrl)
@@ -241,6 +243,7 @@ function shuffleArray(array) {
     //   }
         hideAll()
         showPage($('.game-play'))
+        hints = 0
       quizIndex = 0
       for (let i = 0; i < questionBank.length; i++) {
           questionBank[i].question = decodeHTML(questionBank[i].question)
