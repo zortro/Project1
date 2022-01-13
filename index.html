@@ -18,7 +18,7 @@
     <!-- header/navbar -->
     <nav>
       <div class="nav-wrapper">
-        <a href="#" class="brand-logo">"Smarty Pants" Name Placeholder</a>
+        <a href="index.html" class="brand-logo center">"Smarty Pants" Name Placeholder</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="#">High Scores</a></li>
         </ul>
@@ -34,8 +34,8 @@
             <div class="card-content white-text">
               <span class="card-title">Welcome to our Trivia</span>
               <p>To play our trivia, you need to make some selections</p>
-              <button class="fact-button to-selections" id="to-selections">
-                <a class="waves-effect waves-light btn">Make my Selections</a>
+              <button class="fact-button to-selections btn waves-effect waves-light" id="to-selections">
+              Make my Selections
               </button>
             </div>
           </div>
@@ -60,12 +60,12 @@
                 class="validate"
                 required
               />
-              <p>Number of Questions</p>
+              <p class="subtext">Number of Questions</p>
               <!-- Categories drop down -->
               <select id="category">
                 <option value="0">Any Category</option>
               </select>
-              <p>Trivia Category</p>
+              <p class="subtext">Trivia Category</p>
               <!--Difficulty drop down -->
               <select id="difficulty">
                 <option value="0">Any Difficulty</option>
@@ -73,17 +73,17 @@
                 <option value="2">Medium</option>
                 <option value="3">Hard</option>
               </select>
-              <p>Trivia Difficulty</p>
+              <p class="subtext">Trivia Difficulty</p>
               <!-- Type of questions drop down -->
               <select id="question-type">
                 <option value="0">Any type of Question</option>
                 <option value="1">Multiple Choice</option>
                 <option value="2">True or False</option>
               </select>
-              <p>Type of Question</p>
+              <p class="subtext">Type of Question</p>
               <!-- start trivia button -->
-              <button id="quiz-start" class="start-button">
-                <a class="waves-effect waves-light btn">Start Trivia</a>
+              <button id="quiz-start" class="start-button waves-effect waves-light btn">
+                Start Trivia
               </button>
             </div>
           </div>
@@ -126,7 +126,7 @@
               <div id="modal1" class="modal">
               <div class="modal-content">
                 <h4>Need help?</h4>
-                <p id="helpful-hint">Here's my useful tip!(placeholder) Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis, cumque enim. Ad corporis nobis cumque explicabo placeat sunt quibusdam? Magnam neque animi sit, laudantium numquam nostrum culpa quisquam repellendus atque.</p>
+                <p id="helpful-hint">Tip will display here!</p>
                 <img src="./assets/mascot.png" height="185px" width="134.5px">
               </div>
               <div class="modal-footer">
@@ -192,19 +192,21 @@
               </ul>
             </div>
           </div>
-          <button
-            class="btn waves-effect waves-light clear-scores-btn"
-            name="action"
-          >
-            Clear Scores
-          </button>
-          <button
-          id="play-again"
-            class="btn waves-effect waves-light play-again-btn"
-            name="action"
-          >
-            Play Again?
-          </button>
+          <div class="highscore-btn">
+            <button
+              class="btn waves-effect waves-light clear-scores-btn"
+              name="action"
+            >
+              Clear Scores
+            </button>
+            <button
+              id="play-again"
+              class="btn waves-effect waves-light play-again-btn"
+              name="action"
+            >
+              Play Again?
+            </button>
+          </div>
         </div>
       </div>
     </div>
