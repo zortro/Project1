@@ -1,3 +1,18 @@
+//Sabrina -- sound effects
+var wrongSound = new Audio();
+wrongSound.src = "./assets/sounds/554053__gronkjaer__wronganswer.mp3"
+var rightSound = new Audio();
+rightSound.src = "./assets/sounds/264981__renatalmar__sfx-magic.wav"
+var clickSound = new Audio();
+clickSound.src = "./assets/sounds/448080__breviceps__wet-click.wav"
+var waterSound = new Audio();
+waterSound.src = "./assets/sounds/398808__inspectorj__bubbling-large-a.wav"
+var confusedSound = new Audio();
+confusedSound.src = "./assets/sounds/431615__owly-bee__uhh.wav"
+var eraseSound = new Audio();
+eraseSound.src = "./assets/sounds/538144__fupicat__erase.wav"
+
+
 
 
   //VAR scoreData =
@@ -54,6 +69,7 @@ $(document).ready(function(){
 var hints = 0 // variable to keep track of hints asked for
 $(document).ready(function(){
     function openModal() {
+        waterSound.play();
         hints ++
         $('.modal').modal();
         $('.modal').modal('open')
@@ -70,6 +86,8 @@ $(document).ready(function(){
         openModal()
     }
 
+    document.querySelector('.modal-close').addEventListener('click', function() {
+        confusedSound.play()})
     document.querySelector('.modal-trigger').addEventListener('click', openModal)
     document.querySelector('.ask-more').addEventListener('click', askMore)
   });
@@ -105,6 +123,7 @@ $(document).ready(function(){
   
   function fetchQuestions() {
   //    https://opentdb.com/api.php?amount=10&category=10&difficulty=medium&type=multiple --example url 
+     clickSound.play();
      triviaUrl = 'https://opentdb.com/api.php?amount=';
      questionBank = [];
      playerPoints = 0;
@@ -230,9 +249,11 @@ function shuffleArray(array) {
       if (questionBank[quizIndex].correct_answer === answer) {
           playerPoints += pointsForAnswer
           newQuestion();
+          rightSound.play();
       } else {
           wrongAnswer ++
           newQuestion();
+          wrongSound.play();
       }
     };
   
@@ -354,6 +375,7 @@ const clearScores = document.querySelector('.clear-scores-btn')
 // })
 
 clearScores.addEventListener("click", function () { // clear scores function empties all recorded scores in local storage
+    eraseSound.play();
     scores = []
     localStorage.removeItem("scores")
     renderScores();
@@ -364,11 +386,13 @@ clearScores.addEventListener("click", function () { // clear scores function emp
   $('#to-selections').click(function() {
       hideAll();
       showPage($('.trivia-selections'))
+      clickSound.play();
     })
 
   $('#play-again').click(function() {
       hideAll();
       showPage($('.trivia-selections'))
+      clickSound.play();
   })
   
   $("#submit-score").click(function(event) {
@@ -385,6 +409,7 @@ clearScores.addEventListener("click", function () { // clear scores function emp
     nameInput.value = "";
     storeScores();
     renderScores();  
+    clickSound.play();
     hideAll();
     showPage($('.high-scores'))
   })
