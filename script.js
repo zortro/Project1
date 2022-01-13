@@ -51,8 +51,10 @@ $(document).ready(function(){
 })
 
 //Modal -Ben
+var hints = 0 // variable to keep track of hints asked for
 $(document).ready(function(){
     function openModal() {
+        hints ++
         $('.modal').modal();
         $('.modal').modal('open')
         fetch(factUrl)
@@ -91,6 +93,9 @@ $(document).ready(function(){
   var factUrl = 'https://uselessfacts.jsph.pl/random.json?language=en';
   
   var questionBank = []
+  var playerPoints = 0
+  var pointsForAnswer = 100
+  var wrongAnswer = 0
 // added to cuz matarialize is dumb --spencer
 // wont recognize new options in select fields unless told to --spencer
   $('#category').formSelect();
@@ -102,6 +107,7 @@ $(document).ready(function(){
   //    https://opentdb.com/api.php?amount=10&category=10&difficulty=medium&type=multiple --example url 
      triviaUrl = 'https://opentdb.com/api.php?amount=';
      questionBank = [];
+     playerPoints = 0;
       var number = $('#questions-number').val()
       var cat = $('#category').val()
       var diff = $('#difficulty').val()
@@ -204,8 +210,11 @@ function shuffleArray(array) {
           quizIndex++; 
           showQuestion();
       } else { // if there are no questions left end the quiz
+          $('.your-score-is').text(`You answered ${questionBank.length - wrongAnswer} out of ${questionBank.length} questions correctly for ${playerPoints}!`)
+          $('.score-percentage').text(`You were right ${((quizIndex + 1 - wrongAnswer)/ (quizIndex + 1))*100}% of the time! `) 
           hideAll()
           showPage($('.end-of-game'))
+          $('#questions-number').val('')
       }
   }
   
@@ -213,8 +222,13 @@ function shuffleArray(array) {
       questionBank[quizIndex].correct_answer = decodeHTML(questionBank[quizIndex].correct_answer);
       questionBank[quizIndex].correct_answer = htmlDecode(questionBank[quizIndex].correct_answer);
       if (questionBank[quizIndex].correct_answer === answer) {
+          playerPoints += pointsForAnswer
           newQuestion();
-      }};
+      } else {
+          wrongAnswer ++
+          newQuestion();
+      }
+    };
   
   function quizStart() {
     //   TODO: pub vision
@@ -229,6 +243,7 @@ function shuffleArray(array) {
     //   }
         hideAll()
         showPage($('.game-play'))
+        hints = 0
       quizIndex = 0
       for (let i = 0; i < questionBank.length; i++) {
           questionBank[i].question = decodeHTML(questionBank[i].question)
@@ -249,7 +264,7 @@ function shuffleArray(array) {
       });
   
   
-  var categoryUrl = 'https://opentdb1.com/api_category.php'  
+  var categoryUrl = 'https://opentdb.com/api_category.php'  
   var categories  = []
 
   function init () {
@@ -271,8 +286,73 @@ function shuffleArray(array) {
               )}
         $("#category").trigger('contentChanged');
     })
+    let storedScores = JSON.parse(localStorage.getItem("scores")); // pull any stored scores from local storage
+
+    if (storedScores !== null) {
+        scores = storedScores;
+    }
+    renderScores();
   }
-  
+ 
+const scoreList = document.querySelector('.stored-scores')
+let scores = [];
+
+function sortScores(a, b) { // sort scores descending by time
+   return b.points - a.points;
+}
+
+function renderScores() { // create score list
+    scoreList.innerHTML = ""; // clear scores
+
+    scores.sort(sortScores);
+
+    for (let i = 0; i < scores.length; i++) { // add list element for every score with rank name points and percent
+        let score = scores[i];
+        let scoreLi = document.createElement("li");
+        scoreLi.textContent = `${i+1}. ${score.name} ${score.points} ${score.percentCorrect}%`;
+        scoreList.appendChild(scoreLi) 
+    }
+}
+
+// function init() {
+//     let storedScores = JSON.parse(localStorage.getItem("scores")); // pull any stored scores from local storage
+
+//     if (storedScores !== null) {
+//         scores = storedScores;
+//     }
+//     renderScores();
+// }
+
+function storeScores() { // store scores in local storage
+    localStorage.setItem("scores", JSON.stringify(scores));
+}
+
+const nameInput = document.querySelector('#score-name')
+const clearScores = document.querySelector('.clear-scores-btn')
+// submitScoreBtn.addEventListener("click", function (event) { // when scores are submitted
+//     event.preventDefault();
+//     let playerScore = {
+//         name: nameInput.value.trim(),
+//         points: playerPoints,
+//         percentCorrect: ((quizIndex + 1 - wrongAnswer)/ (quizIndex + 1))*100
+//     }
+//     if(playerScore.name === "") { // if nothing in name stop function
+//         return;
+//     }
+//     scores.push(playerScore); // add the submitted score to the scores list
+//     nameInput.value = "";
+//     storeScores();
+//     renderScores();
+//     toHighscorePage(); // send to highscore page
+// })
+
+clearScores.addEventListener("click", function () { // clear scores function empties all recorded scores in local storage
+    scores = []
+    localStorage.removeItem("scores")
+    renderScores();
+})
+
+
   $("#quiz-start").click(fetchQuestions)
   $('#to-selections').click(function() {
       hideAll();
@@ -284,12 +364,31 @@ function shuffleArray(array) {
       showPage($('.trivia-selections'))
   })
   
-  $("#submit-score").click(function() {
-      hideAll();
-      showPage($('.high-scores'))
+  $("#submit-score").click(function(event) {
+    event.preventDefault();
+    let playerScore = {
+        name: nameInput.value.trim(),
+        points: playerPoints,
+        percentCorrect: ((quizIndex + 1 - wrongAnswer)/ (quizIndex + 1))*100
+    }
+    if(playerScore.name === "") { // if nothing in name input stop function
+        return;
+    }
+    scores.push(playerScore); // add the submitted score to the scores list
+    nameInput.value = "";
+    storeScores();
+    renderScores();  
+    hideAll();
+    showPage($('.high-scores'))
   })
+$('#high-scores').click(event => {
+    event.preventDefault()
+    hideAll()
+    showPage($('.high-scores'))
+})
 
  init()
+
   // TODO: pub vision
 //   let last = 0;
 //   let changeSpeed = 1500;
