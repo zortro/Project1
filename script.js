@@ -210,8 +210,14 @@ function shuffleArray(array) {
           quizIndex++; 
           showQuestion();
       } else { // if there are no questions left end the quiz
-          $('.your-score-is').text(`You answered ${questionBank.length - wrongAnswer} out of ${questionBank.length} questions correctly for ${playerPoints}!`)
-          $('.score-percentage').text(`You were right ${((quizIndex + 1 - wrongAnswer)/ (quizIndex + 1))*100}% of the time! `) 
+          $('.your-score-is').text(`You answered ${questionBank.length - wrongAnswer} out of ${questionBank.length} questions correctly!`)
+          $('.score-percentage').text(`You were right ${Math.floor(((quizIndex + 1 - wrongAnswer)/ (quizIndex + 1))*100)}% of the time! `) 
+          if (hints > 0) {
+            $('.hint-tracker').text(`You asked for ${hints} hints! Did they help?`)
+          } else {
+            $('.hint-tracker').text("")
+          }
+          
           hideAll()
           showPage($('.end-of-game'))
           $('#questions-number').val('')
@@ -245,6 +251,7 @@ function shuffleArray(array) {
         showPage($('.game-play'))
         hints = 0
       quizIndex = 0
+      wrongAnswer = 0
       for (let i = 0; i < questionBank.length; i++) {
           questionBank[i].question = decodeHTML(questionBank[i].question)
           questionBank[i].question = htmlDecode(questionBank[i].question)
@@ -298,7 +305,7 @@ const scoreList = document.querySelector('.stored-scores')
 let scores = [];
 
 function sortScores(a, b) { // sort scores descending by time
-   return b.points - a.points;
+   return b.percentCorrect - a.percentCorrect;
 }
 
 function renderScores() { // create score list
@@ -309,7 +316,7 @@ function renderScores() { // create score list
     for (let i = 0; i < scores.length; i++) { // add list element for every score with rank name points and percent
         let score = scores[i];
         let scoreLi = document.createElement("li");
-        scoreLi.textContent = `${i+1}. ${score.name} ${score.points} ${score.percentCorrect}%`;
+        scoreLi.textContent = `${i+1}. ${score.name} ${score.percentCorrect}%`;
         scoreList.appendChild(scoreLi) 
     }
 }
@@ -369,7 +376,7 @@ clearScores.addEventListener("click", function () { // clear scores function emp
     let playerScore = {
         name: nameInput.value.trim(),
         points: playerPoints,
-        percentCorrect: ((quizIndex + 1 - wrongAnswer)/ (quizIndex + 1))*100
+        percentCorrect: Math.floor(((quizIndex + 1 - wrongAnswer)/ (quizIndex + 1))*100)
     }
     if(playerScore.name === "") { // if nothing in name input stop function
         return;
