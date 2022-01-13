@@ -3,6 +3,13 @@
     padding: 0;
 }
 
+body {
+    background-image: url(./assets/underwater-background.gif);
+    background-repeat: none;
+    background-size: cover;
+    background-color: blue;
+}
+
 img {
     padding: 10px;
     margin: 0;
@@ -47,7 +54,7 @@ p {
 }
 /* Clear Score and Play Again buttons */
 .highscore-btn {
-    margin-left: 17vw;
+    margin-left: 26%;
     display: flex;
     justify-content: center;
     width: 100%;
