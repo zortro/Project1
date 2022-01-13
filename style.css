@@ -4,10 +4,10 @@
 }
 
 img {
-    padding: 0;
+    padding: 10px;
     margin: 0;
-    margin-top: -160px; 
-    margin-left: 50%;
+    margin-top: -100px; 
+    margin-left: 48%;
     position: fixed;
 }
 
@@ -15,9 +15,49 @@ h4 {
     color: black;
     padding-left: 5%;
 }
-
-p {
+/* Random help text */
+#helpful-hint {
     color: black;
     padding-left: 5%;
     padding-right: 50%;
+}
+/* Card elements */
+.card {
+    margin-top: 10vh;
+    margin-left: 25vw;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    color: white;
+}
+/* Card content */
+.card-content {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+/* All buttons */
+.btn {
+    margin: 10px;
+}
+/* Clear Score and Play Again buttons */
+.highscore-btn {
+    margin-left: 17vw;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+input {
+    color: white;
+    text-align: center;
+}
+/* Dropdown subtext */
+.subtext {
+    color: lightgrey;
 }

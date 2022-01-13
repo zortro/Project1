@@ -50,6 +50,7 @@ $(document).ready(function(){
     $('select').formSelect();
 })
 
+//Modal -Ben
 $(document).ready(function(){
     function openModal() {
         $('.modal').modal();
@@ -63,7 +64,6 @@ $(document).ready(function(){
     });
     }
     function askMore() {
-        $('.modal').modal();
         $('.modal').modal('close')
         openModal()
     }
@@ -249,7 +249,7 @@ function shuffleArray(array) {
       });
   
   
-  var categoryUrl = 'https://opentdb.com/api_category.php'  
+  var categoryUrl = 'https://opentdb1.com/api_category.php'  
   var categories  = []
 
   function init () {
