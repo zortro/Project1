@@ -175,26 +175,29 @@ function shuffleArray(array) {
 }
 
   function showQuestion() {
-      for (let k = 0; k < answerBtns.length; k++) {
-          answerBtns[k].setAttribute('style', 'display: block')
-          
-      }
-      questionEl.textContent = questionBank[quizIndex].question; // load question into the h1
+      
+    questionEl.textContent = questionBank[quizIndex].question;
+      if (questionBank[quizIndex].type == "boolean") {
+          answerBtns[0].textContent = "True" 
+          answerBtns[1].textContent = "False" 
+          answerBtns[2].setAttribute('style', 'display: none')
+          answerBtns[3].setAttribute('style', 'display: none')
+      } else {
+          answerBtns.forEach(element => {
+              element.setAttribute('style', 'display: block')
+          })
+       // load question into the h1
       questionBank[quizIndex].incorrect_answers.push(questionBank[quizIndex].correct_answer)
       shuffleArray(questionBank[quizIndex].incorrect_answers)
       for (let i = 0; i < questionBank[quizIndex].incorrect_answers.length; i++) {
           questionBank[quizIndex].incorrect_answers[i] = decodeHTML(questionBank[quizIndex].incorrect_answers[i])
+          questionBank[quizIndex].incorrect_answers[i] = htmlDecode(questionBank[quizIndex].incorrect_answers[i])
       }
       for (let i = 0; i < answerBtns.length; i++) {
       answerBtns[i].textContent = questionBank[quizIndex].incorrect_answers[i];    
       } // put answer options into every button
-      for (let j = 0; j < answerBtns.length; j++) {
-         if (answerBtns[j].textContent == "") {
-            answerBtns[j].setAttribute('style', 'display: none')             
-         }
-          
-      }
-    }
+      
+    }}
   
   function newQuestion() { // if there are questions left, go to the next question
       if (quizIndex < (questionBank.length-1)) {
@@ -207,6 +210,8 @@ function shuffleArray(array) {
   }
   
   function readAnswer(answer) {
+      questionBank[quizIndex].correct_answer = decodeHTML(questionBank[quizIndex].correct_answer);
+      questionBank[quizIndex].correct_answer = htmlDecode(questionBank[quizIndex].correct_answer);
       if (questionBank[quizIndex].correct_answer === answer) {
           newQuestion();
       }};
