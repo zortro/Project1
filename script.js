@@ -264,8 +264,17 @@ function shuffleArray(array) {
           rightSound.play();
           
       } else {
+          for (let i = 0; i < answerBtns.length; i++) {
+              if (answerBtns[i].textContent == questionBank[quizIndex].correct_answer) {
+                  answerBtns[i].setAttribute('style', 'background-position-x: right')
+              }
+              
+          }
           answer.setAttribute('style', 'background-position-x: left')
-        setTimeout(function() {answer.setAttribute('style', 'background-position-x: center')}, 2000) 
+        for (let j = 0; j < answerBtns.length; j++) {
+            setTimeout( () => {
+                answerBtns[j].setAttribute('style', 'background-position-x: center')}, 2000)
+            }
           answer.classList.add('wrong')
           wrongAnswer ++
         //   newQuestion();
@@ -283,8 +292,12 @@ function shuffleArray(array) {
               document.querySelectorAll('.animate-btn')[i].classList.add('blob-wrap', `blob-${i+1}`, `x${i+1}`)
               
           }
-          
-      } 
+        } else {
+            for (let i = 0; i < answerBtns.length; i++) {
+                answerBtns[i].classList.remove(`y${i+1}`)
+                answerBtns[i].classList.remove('blob')
+                document.querySelectorAll('.animate-btn')[i].classList.remove('blob-wrap', `blob-${i+1}`, `x${i+1}`)
+        }}
         hideAll()
         showPage($('.game-play'))
         hints = 0
