@@ -30,11 +30,11 @@
     <div class="page-load">
       <div class="row">
         <div class="col s12 m8">
-          <div class="card indigo lighten-3">
-            <div class="card-content white-text">
-              <span class="card-title">Welcome to (TITLE HERE)!</span>
-              <p>To play our trivia, you need to make some selections</p>
-              <button class="fact-button to-selections btn waves-effect waves-light purple lighten-2" id="to-selections">
+          <div class="card card-style">
+            <div class="card-content black-text center">
+              <span class="card-title">Welcome to Trivia</span>
+              <p style="color: black;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, repudiandae numquam. Quae voluptas cumque autem dicta quas. Perspiciatis velit magni, ea nisi numquam ad non aliquam ipsam, dignissimos mollitia eveniet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo officiis nostrum vitae reprehenderit delectus enim eius fugiat ipsam incidunt consectetur recusandae vero autem commodi, molestiae veniam deleniti necessitatibus eum quo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente placeat aut in rem iure, temporibus optio voluptate. Neque voluptatem, corrupti esse deleniti repellat magni numquam commodi quam obcaecati enim qui.</p>
+              <button class="fact-button to-selections btn waves-effect waves-light purple lighten-2 button-style" id="to-selections">
               Make my Selections
               </button>
             </div>
@@ -47,8 +47,8 @@
     <div class="trivia-selections">
       <div class="row">
         <div class="col s12 m8">
-          <div class="card indigo lighten-3">
-            <div class="card-content white-text">
+          <div class="card card-style">
+            <div class="card-content black-text">
               <span class="card-title">Make your Trivia Selections</span>
               <!-- No. of questions input field -->
               <input
@@ -60,23 +60,23 @@
                 class="validate"
                 required
               />
-              <p class="subtext">Number of Questions</p>
+              <p class="subtext" id="black-subtext">Number of Questions</p>
               <!-- Categories drop down -->
               <select id="category">
                 <option value="0">Any Category</option>
               </select>
-              <p class="subtext">Trivia Category</p>
+              <p class="subtext" id="black-subtext">Trivia Category</p>
               <!--Difficulty drop down -->
-              <select id="difficulty">
+              <select id="difficulty black-text">
                 <option value="0">Any Difficulty</option>
                 <option value="1">Easy</option>
                 <option value="2">Medium</option>
                 <option value="3">Hard</option>
               </select>
-              <p class="subtext">Trivia Difficulty</p>
+              <p class="subtext" id="black-subtext">Trivia Difficulty</p>
               <!-- Type of questions drop down -->
               <select id="question-type">
-                <option value="0">Any type of Question</option>
+                <option value="0" id="black-subtext">Both</option>
                 <option value="1">Multiple Choice</option>
                 <option value="2">True or False</option>
               </select>
@@ -88,7 +88,7 @@
                 </label>
               </p>
               <!-- start trivia button -->
-              <button id="quiz-start" class="start-button waves-effect waves-light btn purple lighten-2">
+              <button id="quiz-start" class="start-button waves-effect waves-light btn purple lighten-2 button-style">
                 Start Trivia
               </button>
             </div>
@@ -100,37 +100,32 @@
     <!-- "game play" page -->
 
     <div class="game-play">
-       <div class="row">
-        <div class="col s12" id="space">
-          <div class="card indigo lighten-3">
-            <div class="card-content white-text" id="question-card">
-              <span id="question-text" class="card-title">Question goes here</span> 
-              </div>
-              </div>
-              <div class="animate-btn">  
+      <div class="row">
+        <div class="col s12 m8">
+          <div class="card card-style">
+            <div class="card-content black-text" id="game-card">
+              <span id="question-text" class="card-title center">Question goes here</span>
               <button
-                  class="btn waves-effect waves-light answer-btn purple lighten-2 col s8 offset-s2"
-                  name="action" onclick="this.blur()">
-                  Answer 1
-                </button>
-                </div>
-              <div class="animate-btn">
-                <button
-                class="btn waves-effect waves-light answer-btn purple lighten-2 col s8 offset-s2"
+                class="btn waves-effect waves-light answer-btn purple lighten-2 answer-button-style"
+                name="action" onclick="this.blur()">
+                Answer 1
+              </button>
+              <button
+                class="btn waves-effect waves-light answer-btn purple lighten-2 answer-button-style"
                 name="action" onclick="this.blur()">
                 Answer 2
               </button>
               </div>
               <div class="animate-btn">
               <button
-                class="btn waves-effect waves-light answer-btn purple lighten-2 col s8 offset-s2"
+                class="btn waves-effect waves-light answer-btn purple lighten-2 answer-button-style"
                 name="action" onclick="this.blur()">
                 Answer 3
               </button>
               </div>
               <div class="animate-btn">
               <button
-                class="btn waves-effect waves-light answer-btn purple lighten-2 col s8 offset-s2"
+                class="btn waves-effect waves-light answer-btn purple lighten-2 answer-button-style"
                 name="action" onclick="this.blur()">
                 Answer 4
               </button>
@@ -144,10 +139,10 @@
     <div class="game-play">
       <div class="row">
         <div class="col s12 m8">
-          <div class="card indigo lighten-3 below">
+          <div class="card modal-style">
             <div class="card-content white-text">
               <!-- Modal Help Button -->
-              <a class="waves-effect waves-light btn modal-trigger purple lighten-2 up" href="#modal1">Help!</a>
+              <a class="waves-effect waves-light btn modal-trigger purple lighten-2" href="#modal1">Would you like some help? Click me!</a>
 
                 <div id="modal1" class="modal">
                   <div class="modal-content">
@@ -171,17 +166,17 @@
     <div class="end-of-game">
       <div class="row">
         <div class="col s12 m8">
-          <div class="card indigo lighten-3">
-            <div class="card-content white-text">
+          <div class="card card-style">
+            <div class="card-content black-text">
               <span class="card-title">Game Over</span>
-              <p class="your-score-is">
+              <p class="your-score-is black-text">
                 You answered 10 out of 20 questions correctly(this will be
                 replaced in JS)
               </p>
-              <p class="score-percentage">
+              <p class="score-percentage black-text">
                 Your score is 50% (this will be replaced by JS)
               </p>
-              <p class="hint-tracker"></p>
+              <p class="hint-tracker black-text"></p>
               <input
                 placeholder="enter your name"
                 id="score-name"
@@ -191,7 +186,7 @@
               />
               <button
                 id="submit-score"
-                class="btn waves-effect waves-light purple lighten-2"
+                class="btn waves-effect waves-light purple lighten-2 button-style"
                 type="submit"
                 name="action"
               >
@@ -208,8 +203,8 @@
     <div class="high-scores">
       <div class="row">
         <div class="col s12 m8">
-          <div class="card indigo lighten-3">
-            <div class="card-content white-text">
+          <div class="card card-style">
+            <div class="card-content black-text">
               <span class="card-title">High Scores</span>
               <ul class="stored-scores">
                 <li>placeholder score</li>
@@ -220,14 +215,14 @@
           </div>
           <div class="highscore-btn">
             <button
-              class="btn waves-effect waves-light clear-scores-btn purple lighten-2"
+              class="btn waves-effect waves-light clear-scores-btn purple lighten-2 button-style"
               name="action"
             >
               Clear Scores
             </button>
             <button
               id="play-again"
-              class="btn waves-effect waves-light play-again-btn purple lighten-2"
+              class="btn waves-effect waves-light play-again-btn purple lighten-2 button-style"
               name="action"
             >
               Play Again?

@@ -17,6 +17,45 @@ body {
     background-color: blue;
 }
 
+.card-style {
+  border-radius: 40px;
+  border: 3px dotted white;
+  background: radial-gradient(#c5cae9, #9fa8da, #536dfe);
+  box-shadow: 0px 0px 50px 10px white;
+  width: fit-content;
+  /*box shadow x offset, y offset, blur, spread, color */
+}
+
+.modal-style {
+  border-radius: 20px;
+  border: 3px double white;
+  background: radial-gradient(#c5cae9, #9fa8da, #536dfe);
+  /* box-shadow: 0px 0px 50px 10px white; */
+  /* width: fit-content; */
+  /*box shadow x offset, y offset, blur, spread, color */
+}
+
+.button-style {
+  border-radius: 10px;
+  width: fit-content;
+}
+
+#game-card {
+  align-items: stretch !important;
+}
+
+.answer-button-style {
+  border-radius: 10px;
+  /* width: 40em; */
+
+}
+
+#black-subtext {
+  color: black;
+  font-size: 12px;
+}
+
+
 img {
     padding: 10px;
     margin: 0;
