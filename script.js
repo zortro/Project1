@@ -290,14 +290,15 @@ function shuffleArray(array) {
               answerBtns[i].classList.add(`y${i+1}`)
               answerBtns[i].classList.add('blob')
               document.querySelectorAll('.animate-btn')[i].classList.add('blob-wrap', `blob-${i+1}`, `x${i+1}`)
-              
+            //   $('#space').append($('.animate-btn')[i])
           }
         } else {
             for (let i = 0; i < answerBtns.length; i++) {
                 answerBtns[i].classList.remove(`y${i+1}`)
                 answerBtns[i].classList.remove('blob')
                 document.querySelectorAll('.animate-btn')[i].classList.remove('blob-wrap', `blob-${i+1}`, `x${i+1}`)
-        }}
+                // $('#question-card').append($('.animate-btn')[i])
+           }}
         hideAll()
         showPage($('.game-play'))
         hints = 0

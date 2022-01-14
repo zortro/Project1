@@ -7,7 +7,7 @@
     --width: 100px;
     --x-speed: 13s;
     --y-speed: 7s;
-    --transition-speed: 2.2s;
+    --transition-speed: 1.2s;
     /* --gradient: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%) */
   }
 body {
@@ -66,7 +66,13 @@ p {
     justify-content: center;
     width: 100%;
 }
-
+.answer-btn {
+    transition: all .5s ease;
+    background-size: 500%, 100%;
+    background-image: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%);
+    background-position: center;
+    z-index: 10000;
+}
 input {
     color: white;
     text-align: center;
@@ -78,8 +84,8 @@ input {
 
 /* pub Vision */
 .blob { 
-    width: var(--width);
-    height: var(--width);
+    width: var(--width) !important ;
+    height: var(--width) !important ;
     background: #90A4AE;
     transition: border-radius var(--transition-speed) linear;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
@@ -170,13 +176,7 @@ input {
   transition:all 2s ease;
 } */
 
-.answer-btn {
-    transition: all .5s ease;
-    background-size: 500%, 100%;
-    background-image: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%);
-    background-position: center;
-    z-index: 10000;
-}
+
 
 .up {
     z-index: 3;
