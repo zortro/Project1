@@ -8,7 +8,7 @@ clickSound.src = "./assets/sounds/448080__breviceps__wet-click.wav"
 var waterSound = new Audio();
 waterSound.src = "./assets/sounds/398808__inspectorj__bubbling-large-a.wav"
 var confusedSound = new Audio();
-confusedSound.src = "./assets/sounds/431615__owly-bee__uhh.wav"
+confusedSound.src = "./assets/sounds/449166__horathdrak__thank-you.ogg"
 var eraseSound = new Audio();
 eraseSound.src = "./assets/sounds/538144__fupicat__erase.wav"
 
