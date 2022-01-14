@@ -310,6 +310,7 @@ jQuery.fn.reverse = [].reverse;
                $(this).attr('class','animate-btn')
                $('#question-card').append($(this))
            })
+           
         }
         hideAll()
         showPage($('.game-play'))

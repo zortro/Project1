@@ -115,6 +115,7 @@ p {
     background-size: 500%, 100%;
     background-image: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%);
     background-position: center;
+    width: 100%;
     /* z-index: 10000; */
 }
 input {
@@ -127,6 +128,10 @@ input {
 }
 
 /* pub Vision */
+/* .animate-btn {
+
+} */
+
 .blob { 
     width: var(--width) !important ;
     height: var(--width) !important ;
