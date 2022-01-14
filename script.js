@@ -276,15 +276,15 @@ function shuffleArray(array) {
   
   function quizStart() {
     //   TODO: pub vision
-    //   if ($('#pub')) {
-    //       for (let i = 0; i < answerBtns.length; i++) {
-    //           answerBtns[i].classList.add(`y${i+1}`)
-    //           answerBtns[i].classList.add('blob')
-    //           document.querySelectorAll('.animate-btn')[i].classList.add('blob-wrap', `blob-${i+1}`, `x${i+1}`)
+      if ($('#pub').prop('checked')) {
+          for (let i = 0; i < answerBtns.length; i++) {
+              answerBtns[i].classList.add(`y${i+1}`)
+              answerBtns[i].classList.add('blob')
+              document.querySelectorAll('.animate-btn')[i].classList.add('blob-wrap', `blob-${i+1}`, `x${i+1}`)
               
-    //       }
+          }
           
-    //   }
+      } 
         hideAll()
         showPage($('.game-play'))
         hints = 0
@@ -442,27 +442,27 @@ $('#high-scores').click(event => {
  init()
 
   // TODO: pub vision
-//   let last = 0;
-//   let changeSpeed = 1500;
-//   let rAF;
-//   var blobs = document.querySelectorAll('.blob')
+  let last = 0;
+  let changeSpeed = 1500;
+  let rAF;
+  var blobs = document.querySelectorAll('.blob')
   
-//   function render(now) {
-//       blobs = document.querySelectorAll('.blob')
-//       if (!last || now - last >= changeSpeed) {
-//         last = now;
-//         blobs.forEach(blob => {
-//           blob.style.borderTopLeftRadius = `${random()}px ${random()}px`;
-//           blob.style.borderTopRightRadius = `${random()}px ${random()}px`;
-//           blob.style.borderBottomLeftRadius = `${random()}px ${random()}px`;
-//           blob.style.borderBottomRightRadius = `${random()}px ${random()}px`;
-//         });
-//       }
-//       rAF = requestAnimationFrame(render);
-//     }
+  function render(now) {
+      blobs = document.querySelectorAll('.blob')
+      if (!last || now - last >= changeSpeed) {
+        last = now;
+        blobs.forEach(blob => {
+          blob.style.borderTopLeftRadius = `${random()}px ${random()}px`;
+          blob.style.borderTopRightRadius = `${random()}px ${random()}px`;
+          blob.style.borderBottomLeftRadius = `${random()}px ${random()}px`;
+          blob.style.borderBottomRightRadius = `${random()}px ${random()}px`;
+        });
+      }
+      rAF = requestAnimationFrame(render);
+    }
   
-//   const random = () => {
-//       return Math.floor((Math.random() * 1000000));
-//     };
+  const random = () => {
+      return Math.floor((Math.random() * 1000000));
+    };
   
-//   render(last);
+  render(last);

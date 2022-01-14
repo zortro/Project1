@@ -175,7 +175,13 @@ input {
     background-size: 500%, 100%;
     background-image: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%);
     background-position: center;
+    z-index: 10000;
 }
+
+.up {
+    z-index: 3;
+}
+
 /* .page-load {
     background-image: linear-gradient(to right, red 25%, white 33%, white 66%, green 75%)
 } */

@@ -81,6 +81,12 @@
                 <option value="2">True or False</option>
               </select>
               <p class="subtext">Type of Question</p>
+              <p>
+                <label>
+                  <input id="pub" type="checkbox" />
+                  <span>pub</span>
+                </label>
+              </p>
               <!-- start trivia button -->
               <button id="quiz-start" class="start-button waves-effect waves-light btn purple lighten-2">
                 Start Trivia
@@ -94,44 +100,54 @@
     <!-- "game play" page -->
 
     <div class="game-play">
-      <div class="row">
+       <div class="row">
         <div class="col s12 m8">
           <div class="card indigo lighten-3">
             <div class="card-content white-text">
-              <span id="question-text" class="card-title">Question goes here</span>
+              <span id="question-text" class="card-title">Question goes here</span> 
+              </div>
+              </div>
+              <div class="animate-btn">  
               <button
-                class="btn waves-effect waves-light answer-btn purple lighten-2"
-                name="action" onclick="this.blur()">
-                Answer 1
-              </button>
-              <button
+                  class="btn waves-effect waves-light answer-btn purple lighten-2"
+                  name="action" onclick="this.blur()">
+                  Answer 1
+                </button>
+                </div>
+              <div class="animate-btn">
+                <button
                 class="btn waves-effect waves-light answer-btn purple lighten-2"
                 name="action" onclick="this.blur()">
                 Answer 2
               </button>
+              </div>
+              <div class="animate-btn">
               <button
                 class="btn waves-effect waves-light answer-btn purple lighten-2"
                 name="action" onclick="this.blur()">
                 Answer 3
               </button>
+              </div>
+              <div class="animate-btn">
               <button
                 class="btn waves-effect waves-light answer-btn purple lighten-2"
                 name="action" onclick="this.blur()">
                 Answer 4
               </button>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        
+       
     </div>
 
     <div class="game-play">
       <div class="row">
         <div class="col s12 m8">
-          <div class="card indigo lighten-3">
+          <div class="card indigo lighten-3 below">
             <div class="card-content white-text">
               <!-- Modal Help Button -->
-              <a class="waves-effect waves-light btn modal-trigger purple lighten-2" href="#modal1">Help!</a>
+              <a class="waves-effect waves-light btn modal-trigger purple lighten-2 up" href="#modal1">Help!</a>
 
                 <div id="modal1" class="modal">
                   <div class="modal-content">
