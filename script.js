@@ -283,6 +283,8 @@ function shuffleArray(array) {
       const buttonTimeout = setTimeout(newQuestion, 2500)
     };
   
+jQuery.fn.reverse = [].reverse;
+
   function quizStart() {
     //   TODO: pub vision
       if ($('#pub').prop('checked')) {
@@ -291,14 +293,22 @@ function shuffleArray(array) {
               answerBtns[i].classList.add('blob')
               document.querySelectorAll('.animate-btn')[i].classList.add('blob-wrap', `blob-${i+1}`, `x${i+1}`)
             //   $('#space').append($('.animate-btn')[i])
-          }
+          } $('.animate-btn').reverse().each(function(){
+            $('#space').append($(this))
+        })
         } else {
             for (let i = 0; i < answerBtns.length; i++) {
                 answerBtns[i].classList.remove(`y${i+1}`)
                 answerBtns[i].classList.remove('blob')
-                document.querySelectorAll('.animate-btn')[i].classList.remove('blob-wrap', `blob-${i+1}`, `x${i+1}`)
+                // $('.animate-btn').attr('class','animate-btn')
+                // document.querySelectorAll('.animate-btn')[i].classList.remove('blob-wrap', `blob-${i+1}`, `x${i+1}`)
                 // $('#question-card').append($('.animate-btn')[i])
-           }}
+           }
+           $('.animate-btn').reverse().each(function(){
+               $(this).attr('class','animate-btn')
+               $('#question-card').append($(this))
+           })
+        }
         hideAll()
         showPage($('.game-play'))
         hints = 0
@@ -476,7 +486,7 @@ $('#high-scores').click(event => {
     }
   
   const random = () => {
-      return Math.floor((Math.random() * 1000000));
+      return Math.floor(10 +(Math.random() * 1000000));
     };
   
   render(last);

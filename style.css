@@ -66,12 +66,17 @@ p {
     justify-content: center;
     width: 100%;
 }
+
+#question-card {
+    align-items: stretch;
+}
+
 .answer-btn {
     transition: all .5s ease;
     background-size: 500%, 100%;
     background-image: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%);
     background-position: center;
-    z-index: 10000;
+    /* z-index: 10000; */
 }
 input {
     color: white;
@@ -86,9 +91,15 @@ input {
 .blob { 
     width: var(--width) !important ;
     height: var(--width) !important ;
-    background: #90A4AE;
+    /* background: #90A4AE; */
     transition: border-radius var(--transition-speed) linear;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.233);
+  }
+
+.blob-1 {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 
 .blob-2 {
@@ -143,7 +154,7 @@ input {
   
   @keyframes x {
     100% {
-      transform: translateX(calc(100vw - var(--width)));
+      transform: translateX(calc(-100vw + var(--width)));
     }
   }
   @keyframes x2 {
@@ -178,9 +189,9 @@ input {
 
 
 
-.up {
+/* .up {
     z-index: 3;
-}
+} */
 
 /* .page-load {
     background-image: linear-gradient(to right, red 25%, white 33%, white 66%, green 75%)
