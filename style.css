@@ -1,260 +1,260 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
-    --width: 100px;
-    --x-speed: 13s;
-    --y-speed: 7s;
-    --transition-speed: 2.2s;
-    /* --gradient: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%) */
-  }
+  --width: 100px;
+  --x-speed: 13s;
+  --y-speed: 7s;
+  --transition-speed: 2.2s;
+  /* --gradient: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%) */
+}
 body {
-    background-image: url(./assets/underwater-background.gif);
-    background-repeat: none;
-    background-size: cover;
-    background-color: blue;
+  background-image: url(./assets/underwater-background.gif);
+  background-repeat: none;
+  background-size: cover;
+  background-color: blue;
 }
 
 .card-style {
-  border-radius: 40px;
-  border: 3px dotted white;
-  background: radial-gradient(#c5cae9, #9fa8da, #536dfe);
-  box-shadow: 0px 0px 50px 10px white;
-  width: fit-content;
-  /*box shadow x offset, y offset, blur, spread, color */
+border-radius: 40px;
+border: 3px dotted white;
+background: radial-gradient(#c5cae9, #9fa8da, #536dfe);
+box-shadow: 0px 0px 50px 10px white;
+width: fit-content;
+/*box shadow x offset, y offset, blur, spread, color */
 }
 
 .modal-style {
-  border-radius: 20px;
-  border: 3px double white;
-  background: radial-gradient(#c5cae9, #9fa8da, #536dfe);
-  /* box-shadow: 0px 0px 50px 10px white; */
-  /* width: fit-content; */
-  /*box shadow x offset, y offset, blur, spread, color */
+border-radius: 20px;
+border: 3px double white;
+background: radial-gradient(#c5cae9, #9fa8da, #536dfe);
+/* box-shadow: 0px 0px 50px 10px white; */
+/* width: fit-content; */
+/*box shadow x offset, y offset, blur, spread, color */
 }
 
 .button-style {
-  border-radius: 10px;
-  width: fit-content;
+border-radius: 10px;
+width: fit-content;
 }
 
 #game-card {
-  align-items: stretch !important;
+align-items: stretch !important;
 }
 
 .answer-button-style {
-  border-radius: 10px;
-  /* width: 40em; */
+border-radius: 10px;
+/* width: 40em; */
 
 }
 
 #black-subtext {
-  color: black;
-  font-size: 12px;
+color: black;
+font-size: 12px;
 }
 
 
 img {
-    padding: 10px;
-    margin: 0;
-    margin-top: -100px; 
-    margin-left: 48%;
-    position: fixed;
+  padding: 10px;
+  margin: 0;
+  margin-top: -100px; 
+  margin-left: 48%;
+  position: fixed;
 }
 
 h4 {
-    color: black;
-    padding-left: 5%;
+  color: black;
+  padding-left: 5%;
 }
 /* Random help text */
 #helpful-hint {
-    color: black;
-    padding-left: 5%;
-    padding-right: 50%;
+  color: black;
+  padding-left: 5%;
+  padding-right: 50%;
 }
 /* Card elements */
 .card {
-    margin-top: 10vh;
-    margin-left: 25vw;
-    width: 50vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  margin-top: 10vh;
+  margin-left: 25vw;
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 p {
-    color: white;
+  color: white;
 }
 /* Card content */
 .card-content {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
 }
 /* All buttons */
 .btn {
-    margin: 10px;
+  margin: 10px;
 }
 /* Clear Score and Play Again buttons */
 .highscore-btn {
-    margin-left: 26%;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+  margin-left: 26%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 input {
-    color: white;
-    text-align: center;
+  color: white;
+  text-align: center;
 }
 /* Dropdown subtext */
 .subtext {
-    color: lightgrey;
+  color: lightgrey;
 }
 
 /* pub Vision */
 .blob { 
-    width: var(--width);
-    height: var(--width);
-    background: #90A4AE;
-    transition: border-radius var(--transition-speed) linear;
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-  }
+  width: var(--width);
+  height: var(--width);
+  background: #90A4AE;
+  transition: border-radius var(--transition-speed) linear;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
 
 .blob-2 {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
 .blob-3 {
-    position: absolute;
-    top: 0;
-    right: 0;
-    
-  }
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+}
 
 .blob-4 {
-    position: absolute;
-    top: 0;
-    right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+.x1 {
+  animation: x var(--x-speed) linear infinite alternate;
+}
+.x2 {
+  animation: x2 5s linear infinite alternate;
+}
+.x3 {
+  animation: x3 6s linear infinite alternate;
+}
+.x4 {
+  animation: x4 8s linear infinite alternate;
+}
+.y1 {
+  animation: y 9s linear infinite alternate;
+}
+.y2 {
+  animation: y var(--y-speed) linear infinite alternate;
+}
+.y3 {
+  animation: y 3s linear infinite alternate;
+}
+.y4 {
+ animation: y 4s linear infinite alternate;
+}
+
+@keyframes x {
+  100% {
+    transform: translateX(calc(100vw - var(--width)));
   }
-  
-  
-  body {
-    margin: 0;
-    overflow: hidden;
+}
+@keyframes x2 {
+  100% {
+    transform: translateX(calc(-100vw + var(--width)));
   }
-  
-  .x1 {
-    animation: x var(--x-speed) linear infinite alternate;
+}
+@keyframes x3 {
+  100% {
+    transform: translateX(calc(-100vw + var(--width)));
   }
-  .x2 {
-    animation: x2 5s linear infinite alternate;
+}
+@keyframes x4 {
+  100% {
+    transform: translateX(calc(-100vw + var(--width)));
   }
-  .x3 {
-    animation: x3 6s linear infinite alternate;
+}
+
+@keyframes y {
+  100% {
+    transform: translateY(calc(100vh - var(--width)));
   }
-  .x4 {
-    animation: x4 8s linear infinite alternate;
-  }
-  .y1 {
-    animation: y 9s linear infinite alternate;
-  }
-  .y2 {
-    animation: y var(--y-speed) linear infinite alternate;
-  }
-  .y3 {
-    animation: y 3s linear infinite alternate;
-  }
-  .y4 {
-   animation: y 4s linear infinite alternate;
-  }
-  
-  @keyframes x {
-    100% {
-      transform: translateX(calc(100vw - var(--width)));
-    }
-  }
-  @keyframes x2 {
-    100% {
-      transform: translateX(calc(-100vw + var(--width)));
-    }
-  }
-  @keyframes x3 {
-    100% {
-      transform: translateX(calc(-100vw + var(--width)));
-    }
-  }
-  @keyframes x4 {
-    100% {
-      transform: translateX(calc(-100vw + var(--width)));
-    }
-  }
-  
-  @keyframes y {
-    100% {
-      transform: translateY(calc(100vh - var(--width)));
-    }
-  }
+}
 
 /* .correct {
-  background: linear-gradient(to right, rgba(255, 0, 0, 0) 50%, green 50%);
-  background-size: 200% 100%;
-  background-position:right bottom;
-  margin-left:10px;
-  transition:all 2s ease;
+background: linear-gradient(to right, rgba(255, 0, 0, 0) 50%, green 50%);
+background-size: 200% 100%;
+background-position:right bottom;
+margin-left:10px;
+transition:all 2s ease;
 } */
 
 .answer-btn {
-    transition: all .5s ease;
-    background-size: 500%, 100%;
-    background-image: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%);
-    background-position: center;
+  transition: all .5s ease;
+  background-size: 500%, 100%;
+  background-image: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%);
+  background-position: center;
 }
 /* .page-load {
-    background-image: linear-gradient(to right, red 25%, white 33%, white 66%, green 75%)
+  background-image: linear-gradient(to right, red 25%, white 33%, white 66%, green 75%)
 } */
 /* .no-transition {
-    transition: none; */
+  transition: none; */
 /* } */
 /* .wrong{
-    animation: wiggle .4s infinite;
+  animation: wiggle .4s infinite;
 } */
 
 /* @keyframes wiggle {
-    0% { transform: rotate(10deg); }
-   80% { transform: rotate(0deg); }
-   85% { transform: rotate(5deg); }
-   95% { transform: rotate(-5deg); }
-  100% { transform: rotate(0deg); }
+  0% { transform: rotate(10deg); }
+ 80% { transform: rotate(0deg); }
+ 85% { transform: rotate(5deg); }
+ 95% { transform: rotate(-5deg); }
+100% { transform: rotate(0deg); }
 } */
 
 .wrong {
-    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    perspective: 1000px;
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
   }
 
-  
-  @keyframes shake {
-    10%, 90% {
-      transform: translate3d(-1px, 0, 0);
-    }
-    
-    20%, 80% {
-      transform: translate3d(2px, 0, 0);
-    }
-  
-    30%, 50%, 70% {
-      transform: translate3d(-4px, 0, 0);
-    }
-  
-    40%, 60% {
-      transform: translate3d(4px, 0, 0);
-    }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
   }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
