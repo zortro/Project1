@@ -203,10 +203,11 @@ function shuffleArray(array) {
           answerBtns[1].textContent = "False" 
           answerBtns[2].setAttribute('style', 'display: none')
           answerBtns[3].setAttribute('style', 'display: none')
-      } else {
-          answerBtns.forEach(element => {
-              element.setAttribute('style', 'display: block')
-          })
+      }
+    //    else {
+        //   answerBtns.forEach(element => {
+        //       element.setAttribute('style', 'display: block')
+        //   })
        // load question into the h1
       questionBank[quizIndex].incorrect_answers.push(questionBank[quizIndex].correct_answer)
       shuffleArray(questionBank[quizIndex].incorrect_answers)
@@ -218,12 +219,13 @@ function shuffleArray(array) {
       answerBtns[i].textContent = questionBank[quizIndex].incorrect_answers[i];    
       } // put answer options into every button
       
-    }}
+    }
   
   function newQuestion() { // if there are questions left, go to the next question
     answerBtns.forEach(element => {
         // element.style.backgroundImage = ('none;');
         element.classList.remove('wrong');
+        element.setAttribute('style', 'display: block');
     })  
     if (quizIndex < (questionBank.length-1)) {
           quizIndex++; 
@@ -258,8 +260,17 @@ function shuffleArray(array) {
           rightSound.play();
           
       } else {
+          for (let i = 0; i < answerBtns.length; i++) {
+              if (answerBtns[i].textContent == questionBank[quizIndex].correct_answer) {
+                  answerBtns[i].setAttribute('style', 'background-position-x: right')
+              }
+              
+          }
           answer.setAttribute('style', 'background-position-x: left')
-        setTimeout(function() {answer.setAttribute('style', 'background-position-x: center')}, 2000) 
+        for (let j = 0; j < answerBtns.length; j++) {
+            setTimeout( () => {
+                answerBtns[j].setAttribute('style', 'background-position-x: center')}, 2000)
+            }
           answer.classList.add('wrong')
           wrongAnswer ++
         //   newQuestion();
@@ -268,17 +279,33 @@ function shuffleArray(array) {
       const buttonTimeout = setTimeout(newQuestion, 2500)
     };
   
+jQuery.fn.reverse = [].reverse;
+
   function quizStart() {
     //   TODO: pub vision
-    //   if ($('#pub')) {
-    //       for (let i = 0; i < answerBtns.length; i++) {
-    //           answerBtns[i].classList.add(`y${i+1}`)
-    //           answerBtns[i].classList.add('blob')
-    //           document.querySelectorAll('.animate-btn')[i].classList.add('blob-wrap', `blob-${i+1}`, `x${i+1}`)
-              
-    //       }
-          
-    //   }
+      if ($('#pub').prop('checked')) {
+          for (let i = 0; i < answerBtns.length; i++) {
+              answerBtns[i].classList.add(`y${i+1}`)
+              answerBtns[i].classList.add('blob')
+              document.querySelectorAll('.animate-btn')[i].classList.add('blob-wrap', `blob-${i+1}`, `x${i+1}`)
+            //   $('#space').append($('.animate-btn')[i])
+          } $('.animate-btn').reverse().each(function(){
+            $('#space').append($(this))
+        })
+        } else {
+            for (let i = 0; i < answerBtns.length; i++) {
+                answerBtns[i].classList.remove(`y${i+1}`)
+                answerBtns[i].classList.remove('blob')
+                // $('.animate-btn').attr('class','animate-btn')
+                // document.querySelectorAll('.animate-btn')[i].classList.remove('blob-wrap', `blob-${i+1}`, `x${i+1}`)
+                // $('#question-card').append($('.animate-btn')[i])
+           }
+           $('.animate-btn').reverse().each(function(){
+               $(this).attr('class','animate-btn')
+               $('#question-card').append($(this))
+           })
+           
+        }
         hideAll()
         showPage($('.game-play'))
         hints = 0
@@ -436,27 +463,27 @@ $('#high-scores').click(event => {
  init()
 
   // TODO: pub vision
-//   let last = 0;
-//   let changeSpeed = 1500;
-//   let rAF;
-//   var blobs = document.querySelectorAll('.blob')
+  let last = 0;
+  let changeSpeed = 1500;
+  let rAF;
+  var blobs = document.querySelectorAll('.blob')
   
-//   function render(now) {
-//       blobs = document.querySelectorAll('.blob')
-//       if (!last || now - last >= changeSpeed) {
-//         last = now;
-//         blobs.forEach(blob => {
-//           blob.style.borderTopLeftRadius = `${random()}px ${random()}px`;
-//           blob.style.borderTopRightRadius = `${random()}px ${random()}px`;
-//           blob.style.borderBottomLeftRadius = `${random()}px ${random()}px`;
-//           blob.style.borderBottomRightRadius = `${random()}px ${random()}px`;
-//         });
-//       }
-//       rAF = requestAnimationFrame(render);
-//     }
+  function render(now) {
+      blobs = document.querySelectorAll('.blob')
+      if (!last || now - last >= changeSpeed) {
+        last = now;
+        blobs.forEach(blob => {
+          blob.style.borderTopLeftRadius = `${random()}px ${random()}px`;
+          blob.style.borderTopRightRadius = `${random()}px ${random()}px`;
+          blob.style.borderBottomLeftRadius = `${random()}px ${random()}px`;
+          blob.style.borderBottomRightRadius = `${random()}px ${random()}px`;
+        });
+      }
+      rAF = requestAnimationFrame(render);
+    }
   
-//   const random = () => {
-//       return Math.floor((Math.random() * 1000000));
-//     };
+  const random = () => {
+      return Math.floor(10 +(Math.random() * 1000000));
+    };
   
-//   render(last);
+  render(last);

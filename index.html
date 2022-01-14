@@ -80,7 +80,13 @@
                 <option value="1">Multiple Choice</option>
                 <option value="2">True or False</option>
               </select>
-              <p class="subtext" id="black-subtext">Type of Question</p>
+              <p class="subtext">Type of Question</p>
+              <p>
+                <label>
+                  <input id="pub" type="checkbox" />
+                  <span>pub</span>
+                </label>
+              </p>
               <!-- start trivia button -->
               <button id="quiz-start" class="start-button waves-effect waves-light btn purple lighten-2 button-style">
                 Start Trivia
@@ -95,34 +101,42 @@
 
     <div class="game-play">
       <div class="row">
-        <div class="col s12 m8">
+        <div class="col s12" id="space">
           <div class="card card-style">
             <div class="card-content black-text" id="game-card">
               <span id="question-text" class="card-title center">Question goes here</span>
+              <div class="animate-btn">
               <button
                 class="btn waves-effect waves-light answer-btn purple lighten-2 answer-button-style"
                 name="action" onclick="this.blur()">
                 Answer 1
               </button>
+            </div>
+              <div class="animate-btn">
               <button
                 class="btn waves-effect waves-light answer-btn purple lighten-2 answer-button-style"
                 name="action" onclick="this.blur()">
                 Answer 2
               </button>
+              </div>
+              <div class="animate-btn">
               <button
                 class="btn waves-effect waves-light answer-btn purple lighten-2 answer-button-style"
                 name="action" onclick="this.blur()">
                 Answer 3
               </button>
+              </div>
+              <div class="animate-btn">
               <button
                 class="btn waves-effect waves-light answer-btn purple lighten-2 answer-button-style"
                 name="action" onclick="this.blur()">
                 Answer 4
               </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+       </div>
     </div>
 
     <div class="game-play">
