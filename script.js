@@ -201,7 +201,9 @@ function shuffleArray(array) {
 
   function showQuestion() {
     questionEl.textContent = questionBank[quizIndex].question;
-    
+    answerBtns.forEach(element => { // when any one of the answers are clicked send the text content of that answer button to be checked in the read answer function 
+        element.addEventListener("click",buttonListener);
+    });
       if (questionBank[quizIndex].type == "boolean") {
           answerBtns[0].textContent = "True" 
           answerBtns[1].textContent = "False" 
@@ -248,7 +250,9 @@ function shuffleArray(array) {
   }
   
   function readAnswer(answer) {
-     
+    answerBtns.forEach(element => { // prevent extra answering 
+        element.removeEventListener("click",buttonListener);
+    });
       questionBank[quizIndex].correct_answer = decodeHTML(questionBank[quizIndex].correct_answer);
       questionBank[quizIndex].correct_answer = htmlDecode(questionBank[quizIndex].correct_answer);
       if (questionBank[quizIndex].correct_answer === answer.textContent) {
@@ -294,15 +298,17 @@ function shuffleArray(array) {
       
   }
   
-      document.querySelectorAll(".answer-btn").forEach(element => { // when any one of the answers are clicked send the text content of that answer button to be checked in the read answer function 
-          element.addEventListener("click", event =>{
-          const clicked = event.target;
-          if (clicked.matches("button")) {
-              readAnswer(clicked)
-          }
-      })
-          
-      });
+  function buttonListener(event) {
+    const clicked = event.target;
+    if (clicked.matches("button")) {
+        readAnswer(clicked)
+    }
+}
+
+
+document.querySelectorAll(".answer-btn").forEach(element => { // when any one of the answers are clicked send the text content of that answer button to be checked in the read answer function 
+      element.addEventListener("click",buttonListener);
+});
   
   
   var categoryUrl = 'https://opentdb.com/api_category.php'  
