@@ -114,8 +114,8 @@ $(document).ready(function(){
   var playerPoints = 0
   var pointsForAnswer = 100
   var wrongAnswer = 0
-// added to cuz matarialize is dumb --spencer
-// wont recognize new options in select fields unless told to --spencer
+// added cuz matarialize is dumb --spencer
+// wont recognize new options in select fields unless told to
   $('#category').formSelect();
   $('#category').on('contentChanged', function() {
     $(this).formSelect();
@@ -200,8 +200,8 @@ function shuffleArray(array) {
 }
 
   function showQuestion() {
-      
     questionEl.textContent = questionBank[quizIndex].question;
+    
       if (questionBank[quizIndex].type == "boolean") {
           answerBtns[0].textContent = "True" 
           answerBtns[1].textContent = "False" 
@@ -225,10 +225,14 @@ function shuffleArray(array) {
     }}
   
   function newQuestion() { // if there are questions left, go to the next question
-      if (quizIndex < (questionBank.length-1)) {
+    answerBtns.forEach(element => {
+        // element.style.backgroundImage = ('none;');
+        element.classList.remove('wrong');
+    })  
+    if (quizIndex < (questionBank.length-1)) {
           quizIndex++; 
           showQuestion();
-      } else { // if there are no questions left end the quiz
+    } else { // if there are no questions left end the quiz
           $('.your-score-is').text(`You answered ${questionBank.length - wrongAnswer} out of ${questionBank.length} questions correctly!`)
           $('.score-percentage').text(`You were right ${Math.floor(((quizIndex + 1 - wrongAnswer)/ (quizIndex + 1))*100)}% of the time! `) 
           if (hints > 0) {
@@ -244,17 +248,26 @@ function shuffleArray(array) {
   }
   
   function readAnswer(answer) {
+     
       questionBank[quizIndex].correct_answer = decodeHTML(questionBank[quizIndex].correct_answer);
       questionBank[quizIndex].correct_answer = htmlDecode(questionBank[quizIndex].correct_answer);
-      if (questionBank[quizIndex].correct_answer === answer) {
+      if (questionBank[quizIndex].correct_answer === answer.textContent) {
           playerPoints += pointsForAnswer
-          newQuestion();
+        //   answer.classList.add('correct')
+          answer.setAttribute('style', 'background-position-x: right;')
+          setTimeout(function() {answer.setAttribute('style', 'background-position-x: center')}, 2000)
+        //   newQuestion();
           rightSound.play();
+          
       } else {
+          answer.setAttribute('style', 'background-position-x: left')
+        setTimeout(function() {answer.setAttribute('style', 'background-position-x: center')}, 2000) 
+          answer.classList.add('wrong')
           wrongAnswer ++
-          newQuestion();
+        //   newQuestion();
           wrongSound.play();
       }
+      const buttonTimeout = setTimeout(newQuestion, 2500)
     };
   
   function quizStart() {
@@ -285,7 +298,7 @@ function shuffleArray(array) {
           element.addEventListener("click", event =>{
           const clicked = event.target;
           if (clicked.matches("button")) {
-              readAnswer(clicked.textContent)
+              readAnswer(clicked)
           }
       })
           
@@ -391,6 +404,7 @@ clearScores.addEventListener("click", function () { // clear scores function emp
 
   $('#play-again').click(function() {
       hideAll();
+      $('#questions-number').val('')
       showPage($('.trivia-selections'))
       clickSound.play();
   })
