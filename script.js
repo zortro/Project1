@@ -209,10 +209,11 @@ function shuffleArray(array) {
           answerBtns[1].textContent = "False" 
           answerBtns[2].setAttribute('style', 'display: none')
           answerBtns[3].setAttribute('style', 'display: none')
-      } else {
-          answerBtns.forEach(element => {
-              element.setAttribute('style', 'display: block')
-          })
+      }
+    //    else {
+        //   answerBtns.forEach(element => {
+        //       element.setAttribute('style', 'display: block')
+        //   })
        // load question into the h1
       questionBank[quizIndex].incorrect_answers.push(questionBank[quizIndex].correct_answer)
       shuffleArray(questionBank[quizIndex].incorrect_answers)
@@ -224,12 +225,13 @@ function shuffleArray(array) {
       answerBtns[i].textContent = questionBank[quizIndex].incorrect_answers[i];    
       } // put answer options into every button
       
-    }}
+    }
   
   function newQuestion() { // if there are questions left, go to the next question
     answerBtns.forEach(element => {
         // element.style.backgroundImage = ('none;');
         element.classList.remove('wrong');
+        element.setAttribute('style', 'display: block');
     })  
     if (quizIndex < (questionBank.length-1)) {
           quizIndex++; 
