@@ -17,7 +17,7 @@
   <body>
     <!-- header/navbar -->
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper indigo accent-1">
         <a href="index.html" class="brand-logo center">"Smarty Pants" Name Placeholder</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="#" id="high-scores">High Scores</a></li>
@@ -30,11 +30,11 @@
     <div class="page-load">
       <div class="row">
         <div class="col s12 m8">
-          <div class="card blue-grey darken-1">
+          <div class="card indigo lighten-3">
             <div class="card-content white-text">
-              <span class="card-title">Welcome to our Trivia</span>
+              <span class="card-title">Welcome to (TITLE HERE)!</span>
               <p>To play our trivia, you need to make some selections</p>
-              <button class="fact-button to-selections btn waves-effect waves-light" id="to-selections">
+              <button class="fact-button to-selections btn waves-effect waves-light purple lighten-2" id="to-selections">
               Make my Selections
               </button>
             </div>
@@ -47,7 +47,7 @@
     <div class="trivia-selections">
       <div class="row">
         <div class="col s12 m8">
-          <div class="card blue-grey darken-1">
+          <div class="card indigo lighten-3">
             <div class="card-content white-text">
               <span class="card-title">Make your Trivia Selections</span>
               <!-- No. of questions input field -->
@@ -82,7 +82,7 @@
               </select>
               <p class="subtext">Type of Question</p>
               <!-- start trivia button -->
-              <button id="quiz-start" class="start-button waves-effect waves-light btn">
+              <button id="quiz-start" class="start-button waves-effect waves-light btn purple lighten-2">
                 Start Trivia
               </button>
             </div>
@@ -96,45 +96,54 @@
     <div class="game-play">
       <div class="row">
         <div class="col s12 m8">
-          <div class="card blue-grey darken-1">
+          <div class="card indigo lighten-3">
             <div class="card-content white-text">
               <span id="question-text" class="card-title">Question goes here</span>
               <button
-                class="btn waves-effect waves-light answer-btn"
+                class="btn waves-effect waves-light answer-btn purple lighten-2"
                 name="action" onclick="this.blur()">
                 Answer 1
               </button>
               <button
-                class="btn waves-effect waves-light answer-btn"
+                class="btn waves-effect waves-light answer-btn purple lighten-2"
                 name="action" onclick="this.blur()">
                 Answer 2
               </button>
               <button
-                class="btn waves-effect waves-light answer-btn"
+                class="btn waves-effect waves-light answer-btn purple lighten-2"
                 name="action" onclick="this.blur()">
                 Answer 3
               </button>
               <button
-                class="btn waves-effect waves-light answer-btn"
+                class="btn waves-effect waves-light answer-btn purple lighten-2"
                 name="action" onclick="this.blur()">
                 Answer 4
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-                  <!-- Modal Help Button -->
-              <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Help!</a>
+    <div class="game-play">
+      <div class="row">
+        <div class="col s12 m8">
+          <div class="card indigo lighten-3">
+            <div class="card-content white-text">
+              <!-- Modal Help Button -->
+              <a class="waves-effect waves-light btn modal-trigger purple lighten-2" href="#modal1">Help!</a>
 
-              <div id="modal1" class="modal">
-              <div class="modal-content">
-                <h4>Need help?</h4>
-                <p id="helpful-hint">Tip will display here!</p>
-                <img src="./assets/mascot.png" height="185px" width="134.5px">
-              </div>
-              <div class="modal-footer">
-                <a href="#!" class="ask-more waves-effect waves-green btn-flat">More useful information please!</a>
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Thanks!</a>
-              </div>
-              </div>
-
+                <div id="modal1" class="modal">
+                  <div class="modal-content">
+                    <h4>Need help?</h4>
+                    <p id="helpful-hint">Tip will display here!</p>
+                    <img src="./assets/mascot.png" height="185px" width="134.5px">
+                  </div>
+                  <div class="modal-footer">
+                    <a href="#!" class="ask-more waves-effect waves-green btn-flat">More useful information please!</a>
+                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Thanks..?</a>
+                  </div>
+                </div>
             </div>
           </div>
         </div>
@@ -146,7 +155,7 @@
     <div class="end-of-game">
       <div class="row">
         <div class="col s12 m8">
-          <div class="card blue-grey darken-1">
+          <div class="card indigo lighten-3">
             <div class="card-content white-text">
               <span class="card-title">Game Over</span>
               <p class="your-score-is">
@@ -166,7 +175,7 @@
               />
               <button
                 id="submit-score"
-                class="btn waves-effect waves-light"
+                class="btn waves-effect waves-light purple lighten-2"
                 type="submit"
                 name="action"
               >
@@ -183,7 +192,7 @@
     <div class="high-scores">
       <div class="row">
         <div class="col s12 m8">
-          <div class="card blue-grey darken-1">
+          <div class="card indigo lighten-3">
             <div class="card-content white-text">
               <span class="card-title">High Scores</span>
               <ul class="stored-scores">
@@ -195,14 +204,14 @@
           </div>
           <div class="highscore-btn">
             <button
-              class="btn waves-effect waves-light clear-scores-btn"
+              class="btn waves-effect waves-light clear-scores-btn purple lighten-2"
               name="action"
             >
               Clear Scores
             </button>
             <button
               id="play-again"
-              class="btn waves-effect waves-light play-again-btn"
+              class="btn waves-effect waves-light play-again-btn purple lighten-2"
               name="action"
             >
               Play Again?

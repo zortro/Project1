@@ -10,6 +10,12 @@
     --transition-speed: 2.2s;
     /* --gradient: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%) */
   }
+body {
+    background-image: url(./assets/underwater-background.gif);
+    background-repeat: none;
+    background-size: cover;
+    background-color: blue;
+}
 
 img {
     padding: 10px;
@@ -55,7 +61,7 @@ p {
 }
 /* Clear Score and Play Again buttons */
 .highscore-btn {
-    margin-left: 17vw;
+    margin-left: 26%;
     display: flex;
     justify-content: center;
     width: 100%;
