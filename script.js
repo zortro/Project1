@@ -302,7 +302,7 @@ jQuery.fn.reverse = [].reverse;
            }
            $('.animate-btn').reverse().each(function(){
                $(this).attr('class','animate-btn')
-               $('#question-card').append($(this))
+               $('#game-card').append($(this))
            })
            
         }
