@@ -4,6 +4,7 @@
 }
 
 :root {
+    /* font-family: 'Luxurious Roman', cursive !important; */
     --width: 100px;
     --x-speed: 13s;
     --y-speed: 7s;
@@ -16,6 +17,28 @@ body {
   background-size: cover;
   background-color: blue;
 }
+
+.nav-wrapper {
+  background: linear-gradient(10deg, #536dfe, #9fa8da, #536dfe);
+  height: 4rem;
+  /* background-color:  #536dfe !important; */
+}
+
+.neon {
+  font-family: 'Luxurious Roman', cursive;
+  color: #c5cae9;
+  text-shadow: 0 0 10px #536dfe;
+  /* text-shadow:
+    0 0 5px #536dfe,
+    0 0 10px #536dfe,
+    0 0 20px #536dfe,
+    0 0 40px #536dfe,
+    0 0 80px #c5cae9,
+    0 0 90px #c5cae9,
+    0 0 100px #c5cae9,
+    0 0 200px #c5cae9; */
+}
+
 
 .card-style {
 border-radius: 40px;
@@ -100,7 +123,6 @@ p {
 }
 /* Clear Score and Play Again buttons */
 .highscore-btn {
-  margin-left: 26%;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -280,4 +302,15 @@ transition:all 2s ease;
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+
+@media only screen and (max-width: 600px) {
+  .neon {
+    font-size: 25px !important;
+  }
+
+  .helpbtn {
+    font-size: 10px !important;
+  }
+
 }
