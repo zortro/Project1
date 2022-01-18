@@ -4,12 +4,11 @@
 }
 
 :root {
-  --width: 100px;
-  --x-speed: 13s;
-  --y-speed: 7s;
-  --transition-speed: 2.2s;
-  /* --gradient: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%) */
-}
+    --width: 100px;
+    --x-speed: 13s;
+    --y-speed: 7s;
+    --transition-speed: 1.2s;
+  }
 body {
   background-image: url(./assets/underwater-background.gif);
   background-repeat: none;
@@ -17,22 +16,34 @@ body {
   background-color: blue;
 }
 
+.nav-wrapper {
+  background: linear-gradient(10deg, #536dfe, #9fa8da, #536dfe);
+  height: 4rem;
+  
+}
+
+.neon {
+  font-family: 'Luxurious Roman', cursive;
+  color: #c5cae9;
+  text-shadow: 0 0 10px #536dfe;
+  
+}
+
+
 .card-style {
 border-radius: 40px;
 border: 3px dotted white;
 background: radial-gradient(#c5cae9, #9fa8da, #536dfe);
 box-shadow: 0px 0px 50px 10px white;
 width: fit-content;
-/*box shadow x offset, y offset, blur, spread, color */
+
 }
 
 .modal-style {
 border-radius: 20px;
 border: 3px double white;
 background: radial-gradient(#c5cae9, #9fa8da, #536dfe);
-/* box-shadow: 0px 0px 50px 10px white; */
-/* width: fit-content; */
-/*box shadow x offset, y offset, blur, spread, color */
+
 }
 
 .button-style {
@@ -46,7 +57,7 @@ align-items: stretch !important;
 
 .answer-button-style {
 border-radius: 10px;
-/* width: 40em; */
+
 
 }
 
@@ -100,12 +111,23 @@ p {
 }
 /* Clear Score and Play Again buttons */
 .highscore-btn {
-  margin-left: 26%;
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
+#question-card {
+    align-items: stretch;
+}
+
+.answer-btn {
+    transition: all .5s ease;
+    background-size: 500%, 100%;
+    background-image: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%);
+    background-position: center;
+    width: 100%;
+    
+}
 input {
   color: white;
   text-align: center;
@@ -115,14 +137,21 @@ input {
   color: lightgrey;
 }
 
-/* pub Vision */
+/* Seasick Mode */
+
+
 .blob { 
-  width: var(--width);
-  height: var(--width);
-  background: #90A4AE;
-  transition: border-radius var(--transition-speed) linear;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-}
+    width: var(--width) !important ;
+    height: var(--width) !important ;
+    transition: border-radius var(--transition-speed) linear;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.233);
+  }
+
+.blob-1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 
 .blob-2 {
   position: absolute;
@@ -138,47 +167,48 @@ input {
 }
 
 .blob-4 {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-
-body {
-  margin: 0;
-  overflow: hidden;
-}
-
-.x1 {
-  animation: x var(--x-speed) linear infinite alternate;
-}
-.x2 {
-  animation: x2 5s linear infinite alternate;
-}
-.x3 {
-  animation: x3 6s linear infinite alternate;
-}
-.x4 {
-  animation: x4 8s linear infinite alternate;
-}
-.y1 {
-  animation: y 9s linear infinite alternate;
-}
-.y2 {
-  animation: y var(--y-speed) linear infinite alternate;
-}
-.y3 {
-  animation: y 3s linear infinite alternate;
-}
-.y4 {
- animation: y 4s linear infinite alternate;
-}
-
-@keyframes x {
-  100% {
-    transform: translateX(calc(100vw - var(--width)));
+    position: absolute;
+    top: 0;
+    right: 0;
   }
-}
+  
+  
+  body {
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .x1 {
+    animation: x var(--x-speed) linear infinite alternate;
+  }
+  .x2 {
+    animation: x2 5s linear infinite alternate;
+  }
+  .x3 {
+    animation: x3 6s linear infinite alternate;
+  }
+  .x4 {
+    animation: x4 8s linear infinite alternate;
+  }
+  .y1 {
+    animation: y 9s linear infinite alternate;
+  }
+  .y2 {
+    animation: y var(--y-speed) linear infinite alternate;
+  }
+  .y3 {
+    animation: y 3s linear infinite alternate;
+  }
+  .y4 {
+   animation: y 4s linear infinite alternate;
+  }
+  
+  @keyframes x {
+    100% {
+      transform: translateX(calc(-100vw + var(--width)));
+    }
+  }
+
 @keyframes x2 {
   100% {
     transform: translateX(calc(-100vw + var(--width)));
@@ -201,37 +231,6 @@ body {
   }
 }
 
-/* .correct {
-background: linear-gradient(to right, rgba(255, 0, 0, 0) 50%, green 50%);
-background-size: 200% 100%;
-background-position:right bottom;
-margin-left:10px;
-transition:all 2s ease;
-} */
-
-.answer-btn {
-  transition: all .5s ease;
-  background-size: 500%, 100%;
-  background-image: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%);
-  background-position: center;
-}
-/* .page-load {
-  background-image: linear-gradient(to right, red 25%, white 33%, white 66%, green 75%)
-} */
-/* .no-transition {
-  transition: none; */
-/* } */
-/* .wrong{
-  animation: wiggle .4s infinite;
-} */
-
-/* @keyframes wiggle {
-  0% { transform: rotate(10deg); }
- 80% { transform: rotate(0deg); }
- 85% { transform: rotate(5deg); }
- 95% { transform: rotate(-5deg); }
-100% { transform: rotate(0deg); }
-} */
 
 .wrong {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
@@ -257,4 +256,99 @@ transition:all 2s ease;
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+
+@media only screen and (max-width: 600px) {
+  .neon {
+    font-size: 1.2rem !important;
+  }
+
+  .card-content {
+    font-size: .7rem !important;
+    text-align: center;
+  }
+
+  .card-title {
+    font-size: 1.2rem !important;
+    text-align: center;
+  }
+
+  .helpbtn {
+    font-size: .6rem !important;
+  }
+
+  .to-selections {
+    font-size: .7rem !important;
+    width: 40vw;
+  }
+
+  .answer-btn, .clear-scores-btn, .play-again-btn, #submit-score {
+    font-size: .7rem !important;
+  }
+
+  .game-play button {
+    width: 65vw;
+  }
+  
+  .card-style {
+    width: 75vw;
+    margin: 10vh 10vw auto 10vw;
+  }
+
+  .modal-trigger {
+    width: 35vw;
+    font-size: .1rem;
+  }
+
+  .mobile-modal {
+    width: 75vw;
+    margin: 5vw 10vw auto 10vw;
+  }
+
+  .modal {
+    max-width: 80vw;
+  }
+
+  #helpful-hint {
+    font-size: .8rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .modal h4 {
+    display: none;
+  }
+
+  .modal img {
+    margin-top: .1rem;
+    height: 100px;
+    width: 72.7px;
+    margin-right: .1rem;
+    margin-left: .3rem;
+    position: fixed;
+  }
+
+  #modal1 {
+    height: fit-content;
+  }
+
+  .modal-content {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-flow: column wrap-reverse;
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
+
+  .modal-footer {
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+  }
+
+  .ask-more, .modal-close {
+    font-size: .7rem;
+  }
+
 }

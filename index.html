@@ -10,15 +10,18 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <link rel="stylesheet" href="./style.css" />
-
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Luxurious+Roman&family=Oooh+Baby&display=swap" rel="stylesheet">
+    <title>Oceans of Knowledge</title>
   </head>
 
   <body>
     <!-- header/navbar -->
     <nav>
-      <div class="nav-wrapper indigo accent-1">
-        <a href="index.html" class="brand-logo center">"Smarty Pants" Name Placeholder</a>
+      <!-- <div class="nav-wrapper indigo accent-1"> -->
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo center neon">"Oceans of Knowledge"</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a href="#" id="high-scores">High Scores</a></li>
         </ul>
@@ -32,10 +35,11 @@
         <div class="col s12 m8">
           <div class="card card-style">
             <div class="card-content black-text center">
-              <span class="card-title">Welcome to Trivia</span>
-              <p style="color: black;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, repudiandae numquam. Quae voluptas cumque autem dicta quas. Perspiciatis velit magni, ea nisi numquam ad non aliquam ipsam, dignissimos mollitia eveniet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo officiis nostrum vitae reprehenderit delectus enim eius fugiat ipsam incidunt consectetur recusandae vero autem commodi, molestiae veniam deleniti necessitatibus eum quo? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente placeat aut in rem iure, temporibus optio voluptate. Neque voluptatem, corrupti esse deleniti repellat magni numquam commodi quam obcaecati enim qui.</p>
+              <!-- <span class="card-title">Welcome to our Trivia Website</span> -->
+              <p style="color: black; font-size: 1.3em;">Thank you for visiting Oceans of Knowledge Trivia. We have prepared a wonderful choose-your-own trivia where you will make selections to tailor the game to your liking. You will have the option to choose from countless categories and several difficulty modes. We have also provided you with a lifeline; a helpful friend who will be available to provide hints throughout your journey. Once you are ready, click the button below to make your selections.
+              </p>
               <button class="fact-button to-selections btn waves-effect waves-light purple lighten-2 button-style" id="to-selections">
-              Make my Selections
+              Make Selections
               </button>
             </div>
           </div>
@@ -76,11 +80,17 @@
               <p class="subtext" id="black-subtext">Trivia Difficulty</p>
               <!-- Type of questions drop down -->
               <select id="question-type">
-                <option value="0" id="black-subtext">Both</option>
+                <option value="0" id="black-subtext" style="color: black;">Both</option>
                 <option value="1">Multiple Choice</option>
                 <option value="2">True or False</option>
               </select>
-              <p class="subtext" id="black-subtext">Type of Question</p>
+              <p class="subtext" id="black-subtext">Type of Question</p><br>
+              <p>
+                <label>
+                  <input id="pub" type="checkbox"/>
+                  <span style="color: black;">Seasick Mode?</span>
+                </label>
+              </p>
               <!-- start trivia button -->
               <button id="quiz-start" class="start-button waves-effect waves-light btn purple lighten-2 button-style">
                 Start Trivia
@@ -95,43 +105,51 @@
 
     <div class="game-play">
       <div class="row">
-        <div class="col s12 m8">
+        <div class="col s12" id="space">
           <div class="card card-style">
             <div class="card-content black-text" id="game-card">
               <span id="question-text" class="card-title center">Question goes here</span>
+              <div class="animate-btn">
               <button
                 class="btn waves-effect waves-light answer-btn purple lighten-2 answer-button-style"
                 name="action" onclick="this.blur()">
                 Answer 1
               </button>
+            </div>
+              <div class="animate-btn">
               <button
                 class="btn waves-effect waves-light answer-btn purple lighten-2 answer-button-style"
                 name="action" onclick="this.blur()">
                 Answer 2
               </button>
+              </div>
+              <div class="animate-btn">
               <button
                 class="btn waves-effect waves-light answer-btn purple lighten-2 answer-button-style"
                 name="action" onclick="this.blur()">
                 Answer 3
               </button>
+              </div>
+              <div class="animate-btn">
               <button
                 class="btn waves-effect waves-light answer-btn purple lighten-2 answer-button-style"
                 name="action" onclick="this.blur()">
                 Answer 4
               </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+       </div>
     </div>
 
     <div class="game-play">
       <div class="row">
         <div class="col s12 m8">
-          <div class="card modal-style">
+          <div class="card modal-style mobile-modal">
             <div class="card-content white-text">
               <!-- Modal Help Button -->
-              <a class="waves-effect waves-light btn modal-trigger purple lighten-2" href="#modal1">Would you like some help? Click me!</a>
+              <a class="waves-effect waves-light btn modal-trigger purple lighten-2 button-style helpbtn" href="#modal1">Need help? Click me!</a>
 
                 <div id="modal1" class="modal">
                   <div class="modal-content">
@@ -191,7 +209,7 @@
 
     <div class="high-scores">
       <div class="row">
-        <div class="col s12 m8">
+        <div class="col s12">
           <div class="card card-style">
             <div class="card-content black-text">
               <span class="card-title">High Scores</span>
