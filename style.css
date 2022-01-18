@@ -10,7 +10,7 @@
     --transition-speed: 1.2s;
   }
 body {
-  background-image: url(./assets/underwater-background.gif);
+  background-image: url(./assets/img/underwater-background.gif);
   background-repeat: none;
   background-size: cover;
   background-color: blue;
@@ -19,14 +19,12 @@ body {
 .nav-wrapper {
   background: linear-gradient(10deg, #536dfe, #9fa8da, #536dfe);
   height: 4rem;
-  
 }
 
 .neon {
   font-family: 'Luxurious Roman', cursive;
   color: #c5cae9;
   text-shadow: 0 0 10px #536dfe;
-  
 }
 
 
@@ -36,14 +34,12 @@ border: 3px dotted white;
 background: radial-gradient(#c5cae9, #9fa8da, #536dfe);
 box-shadow: 0px 0px 50px 10px white;
 width: fit-content;
-
 }
 
 .modal-style {
 border-radius: 20px;
 border: 3px double white;
 background: radial-gradient(#c5cae9, #9fa8da, #536dfe);
-
 }
 
 .button-style {
@@ -58,7 +54,6 @@ align-items: stretch !important;
 .answer-button-style {
 border-radius: 10px;
 
-
 }
 
 #black-subtext {
@@ -66,10 +61,20 @@ color: black;
 font-size: 12px;
 }
 
+.modal {
+  width: 40%;
+}
 
-img {
+
+
+.mcFishSelect {
+  margin-left: 25vw;
+}
+
+.mcFish {
   padding: 10px;
   margin: 0;
+  padding-bottom: 50px;
   margin-top: -100px; 
   margin-left: 48%;
   position: fixed;
@@ -121,12 +126,11 @@ p {
 }
 
 .answer-btn {
-    transition: all .5s ease;
+    transition: all 0.5s ease;
     background-size: 500%, 100%;
     background-image: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%);
     background-position: center;
     width: 100%;
-    
 }
 input {
   color: white;
@@ -137,12 +141,10 @@ input {
   color: lightgrey;
 }
 
-/* Seasick Mode */
-
-
 .blob { 
     width: var(--width) !important ;
     height: var(--width) !important ;
+    /* background: #90A4AE; */
     transition: border-radius var(--transition-speed) linear;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.233);
   }
@@ -231,7 +233,6 @@ input {
   }
 }
 
-
 .wrong {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
@@ -259,6 +260,21 @@ input {
 }
 
 @media only screen and (max-width: 600px) {
+  .seahorse {
+    width: 50%;
+    height: 50%;
+  }
+
+  .mcFishSelect {
+    margin-left: 0;
+    height: 50%;
+    width: 50%
+  }
+  .montee {
+    height: 50%;
+    width: 50%;
+  }
+  
   .neon {
     font-size: 1.2rem !important;
   }
