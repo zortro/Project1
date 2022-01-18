@@ -108,13 +108,14 @@ $(document).ready(function(){
   var playerPoints = 0
   var pointsForAnswer = 100
   var wrongAnswer = 0
-// added cuz matarialize is dumb --spencer
-// wont recognize new options in select fields unless told to
+
+  // Materalize from manipulation
   $('#category').formSelect();
   $('#category').on('contentChanged', function() {
     $(this).formSelect();
   });
   
+  // Trivia API Fetch Request
   function fetchQuestions() {
   //    https://opentdb.com/api.php?amount=10&category=10&difficulty=medium&type=multiple --example url 
      clickSound.play();
@@ -126,7 +127,6 @@ $(document).ready(function(){
       var diff = $('#difficulty').val()
       var type = $('#question-type').val()
       triviaUrl += number
-      console.log(cat)
       if (cat != 0) {
           triviaUrl += `&category=${cat}`
       }
@@ -142,36 +142,29 @@ $(document).ready(function(){
       } else if (type == 2) {
           triviaUrl += `&type=boolean`
       }
-      console.log(triviaUrl)
+      
       fetch(triviaUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      // console.log(data.results[0])
+      
+      if (data.response_code != 0) {
+        alert('There was problem finding your questions, Please try new options.')
+      }
       for (let i = 0; i < data.results.length; i++) {
           questionBank.push(data.results[i])
       }
-      console.log(questionBank)
-      console.log(questionBank[0].correct_answer)
+     
       
       quizStart()
-    });
-  
-    fetch(factUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      // console.log(data);
-      // console.log(data.text);
     });
   }
   
   
   quizIndex = 0;
   
+  //Functions to decode the API data
   var decodeHTML = function (html) {
       var txt = document.createElement('textarea');
       txt.innerHTML = html;
@@ -193,6 +186,7 @@ function shuffleArray(array) {
     }
 }
 
+// Quiz Functions
   function showQuestion() {
     questionEl.textContent = questionBank[quizIndex].question;
     answerBtns.forEach(element => { // when any one of the answers are clicked send the text content of that answer button to be checked in the read answer function 
@@ -204,11 +198,7 @@ function shuffleArray(array) {
           answerBtns[2].setAttribute('style', 'display: none')
           answerBtns[3].setAttribute('style', 'display: none')
       }
-    //    else {
-        //   answerBtns.forEach(element => {
-        //       element.setAttribute('style', 'display: block')
-        //   })
-       // load question into the h1
+    
       questionBank[quizIndex].incorrect_answers.push(questionBank[quizIndex].correct_answer)
       shuffleArray(questionBank[quizIndex].incorrect_answers)
       for (let i = 0; i < questionBank[quizIndex].incorrect_answers.length; i++) {
@@ -253,10 +243,8 @@ function shuffleArray(array) {
       questionBank[quizIndex].correct_answer = htmlDecode(questionBank[quizIndex].correct_answer);
       if (questionBank[quizIndex].correct_answer === answer.textContent) {
           playerPoints += pointsForAnswer
-        //   answer.classList.add('correct')
           answer.setAttribute('style', 'background-position-x: right;')
           setTimeout(function() {answer.setAttribute('style', 'background-position-x: center')}, 2000)
-        //   newQuestion();
           rightSound.play();
           
       } else {
@@ -273,7 +261,6 @@ function shuffleArray(array) {
             }
           answer.classList.add('wrong')
           wrongAnswer ++
-        //   newQuestion();
           wrongSound.play();
       }
       const buttonTimeout = setTimeout(newQuestion, 2500)
@@ -282,13 +269,13 @@ function shuffleArray(array) {
 jQuery.fn.reverse = [].reverse;
 
   function quizStart() {
-    //   TODO: pub vision
+      // Seasick Mode
       if ($('#pub').prop('checked')) {
           for (let i = 0; i < answerBtns.length; i++) {
               answerBtns[i].classList.add(`y${i+1}`)
               answerBtns[i].classList.add('blob')
               document.querySelectorAll('.animate-btn')[i].classList.add('blob-wrap', `blob-${i+1}`, `x${i+1}`)
-            //   $('#space').append($('.animate-btn')[i])
+            
           } $('.animate-btn').reverse().each(function(){
             $('#space').append($(this))
         })
@@ -296,9 +283,7 @@ jQuery.fn.reverse = [].reverse;
             for (let i = 0; i < answerBtns.length; i++) {
                 answerBtns[i].classList.remove(`y${i+1}`)
                 answerBtns[i].classList.remove('blob')
-                // $('.animate-btn').attr('class','animate-btn')
-                // document.querySelectorAll('.animate-btn')[i].classList.remove('blob-wrap', `blob-${i+1}`, `x${i+1}`)
-                // $('#question-card').append($('.animate-btn')[i])
+                
            }
            $('.animate-btn').reverse().each(function(){
                $(this).attr('class','animate-btn')
@@ -342,12 +327,11 @@ document.querySelectorAll(".answer-btn").forEach(element => { // when any one of
           return response.json();
       })
       .then(function(data) {
-      console.log(data)
+      
       for (let i = 0; i < data.trivia_categories.length; i++) {
           categories.push(data.trivia_categories[i])
           }
-          console.log(categories)
-          console.log(categories[0].name)
+          
           for (let j = 0; j < categories.length; j++) {
               $('#category').append(new Option(categories[j].name, categories[j].id)
               
@@ -361,7 +345,9 @@ document.querySelectorAll(".answer-btn").forEach(element => { // when any one of
     }
     renderScores();
   }
- 
+
+  // Highscores and Local storage Functions
+
 const scoreList = document.querySelector('.stored-scores')
 let scores = [];
 
@@ -382,37 +368,13 @@ function renderScores() { // create score list
     }
 }
 
-// function init() {
-//     let storedScores = JSON.parse(localStorage.getItem("scores")); // pull any stored scores from local storage
-
-//     if (storedScores !== null) {
-//         scores = storedScores;
-//     }
-//     renderScores();
-// }
-
 function storeScores() { // store scores in local storage
     localStorage.setItem("scores", JSON.stringify(scores));
 }
 
 const nameInput = document.querySelector('#score-name')
 const clearScores = document.querySelector('.clear-scores-btn')
-// submitScoreBtn.addEventListener("click", function (event) { // when scores are submitted
-//     event.preventDefault();
-//     let playerScore = {
-//         name: nameInput.value.trim(),
-//         points: playerPoints,
-//         percentCorrect: ((quizIndex + 1 - wrongAnswer)/ (quizIndex + 1))*100
-//     }
-//     if(playerScore.name === "") { // if nothing in name stop function
-//         return;
-//     }
-//     scores.push(playerScore); // add the submitted score to the scores list
-//     nameInput.value = "";
-//     storeScores();
-//     renderScores();
-//     toHighscorePage(); // send to highscore page
-// })
+
 
 clearScores.addEventListener("click", function () { // clear scores function empties all recorded scores in local storage
     eraseSound.play();
@@ -421,7 +383,7 @@ clearScores.addEventListener("click", function () { // clear scores function emp
     renderScores();
 })
 
-
+// Button listeners
   $("#quiz-start").click(fetchQuestions)
   $('#to-selections').click(function() {
       hideAll();
@@ -462,7 +424,7 @@ $('#high-scores').click(event => {
 
  init()
 
-  // TODO: pub vision
+  // Seasick mode bubble shape
   let last = 0;
   let changeSpeed = 1500;
   let rAF;
