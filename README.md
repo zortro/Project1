@@ -41,7 +41,7 @@ For your pure entertainment we have added a get help button so that we can popul
 # CONTRIBUTORS:
 Ben Dominguez - Program Manager- Git hub Manager - javascript/ modals/html/ css theme
 
-Sabrina Henson - Project Manager- scheduler/javascipt/modals/html/css/ sound effects
+Sabrina Hanson - Project Manager- scheduler/javascipt/modals/html/css/ sound effects
 
 Spencer Nelson- API'S, MVP, Character Develepoment
 
