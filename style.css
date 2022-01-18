@@ -306,11 +306,95 @@ transition:all 2s ease;
 
 @media only screen and (max-width: 600px) {
   .neon {
-    font-size: 25px !important;
+    font-size: 1.2rem !important;
+  }
+
+  .card-content {
+    font-size: .7rem !important;
+    text-align: center;
+  }
+
+  .card-title {
+    font-size: 1.2rem !important;
+    text-align: center;
   }
 
   .helpbtn {
-    font-size: 10px !important;
+    font-size: .6rem !important;
+  }
+
+  .to-selections {
+    font-size: .7rem !important;
+    width: 40vw;
+  }
+
+  .answer-btn, .clear-scores-btn, .play-again-btn, #submit-score {
+    font-size: .7rem !important;
+  }
+
+  .game-play button {
+    width: 65vw;
+  }
+  
+  .card-style {
+    width: 75vw;
+    margin: 10vh 10vw auto 10vw;
+  }
+
+  .modal-trigger {
+    width: 35vw;
+    font-size: .1rem;
+  }
+
+  .mobile-modal {
+    width: 75vw;
+    margin: 5vw 10vw auto 10vw;
+  }
+
+  .modal {
+    max-width: 80vw;
+  }
+
+  #helpful-hint {
+    font-size: .8rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .modal h4 {
+    display: none;
+  }
+
+  .modal img {
+    margin-top: .1rem;
+    height: 100px;
+    width: 72.7px;
+    margin-right: .1rem;
+    margin-left: .3rem;
+    position: fixed;
+  }
+
+  #modal1 {
+    height: fit-content;
+  }
+
+  .modal-content {
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    flex-flow: column wrap-reverse;
+    justify-content: space-between;
+    margin-bottom: 0;
+  }
+
+  .modal-footer {
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+  }
+
+  .ask-more, .modal-close {
+    font-size: .7rem;
   }
 
 }
