@@ -4,12 +4,10 @@
 }
 
 :root {
-    /* font-family: 'Luxurious Roman', cursive !important; */
     --width: 100px;
     --x-speed: 13s;
     --y-speed: 7s;
     --transition-speed: 1.2s;
-    /* --gradient: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%) */
   }
 body {
   background-image: url(./assets/underwater-background.gif);
@@ -21,22 +19,14 @@ body {
 .nav-wrapper {
   background: linear-gradient(10deg, #536dfe, #9fa8da, #536dfe);
   height: 4rem;
-  /* background-color:  #536dfe !important; */
+  
 }
 
 .neon {
   font-family: 'Luxurious Roman', cursive;
   color: #c5cae9;
   text-shadow: 0 0 10px #536dfe;
-  /* text-shadow:
-    0 0 5px #536dfe,
-    0 0 10px #536dfe,
-    0 0 20px #536dfe,
-    0 0 40px #536dfe,
-    0 0 80px #c5cae9,
-    0 0 90px #c5cae9,
-    0 0 100px #c5cae9,
-    0 0 200px #c5cae9; */
+  
 }
 
 
@@ -46,16 +36,14 @@ border: 3px dotted white;
 background: radial-gradient(#c5cae9, #9fa8da, #536dfe);
 box-shadow: 0px 0px 50px 10px white;
 width: fit-content;
-/*box shadow x offset, y offset, blur, spread, color */
+
 }
 
 .modal-style {
 border-radius: 20px;
 border: 3px double white;
 background: radial-gradient(#c5cae9, #9fa8da, #536dfe);
-/* box-shadow: 0px 0px 50px 10px white; */
-/* width: fit-content; */
-/*box shadow x offset, y offset, blur, spread, color */
+
 }
 
 .button-style {
@@ -69,7 +57,7 @@ align-items: stretch !important;
 
 .answer-button-style {
 border-radius: 10px;
-/* width: 40em; */
+
 
 }
 
@@ -138,7 +126,7 @@ p {
     background-image: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%);
     background-position: center;
     width: 100%;
-    /* z-index: 10000; */
+    
 }
 input {
   color: white;
@@ -149,15 +137,12 @@ input {
   color: lightgrey;
 }
 
-/* pub Vision */
-/* .animate-btn {
+/* Seasick Mode */
 
-} */
 
 .blob { 
     width: var(--width) !important ;
     height: var(--width) !important ;
-    /* background: #90A4AE; */
     transition: border-radius var(--transition-speed) linear;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.233);
   }
@@ -246,37 +231,6 @@ input {
   }
 }
 
-/* .correct {
-background: linear-gradient(to right, rgba(255, 0, 0, 0) 50%, green 50%);
-background-size: 200% 100%;
-background-position:right bottom;
-margin-left:10px;
-transition:all 2s ease;
-} */
-
-
-
-/* .up {
-    z-index: 3;
-} */
-
-/* .page-load {
-  background-image: linear-gradient(to right, red 25%, white 33%, white 66%, green 75%)
-} */
-/* .no-transition {
-  transition: none; */
-/* } */
-/* .wrong{
-  animation: wiggle .4s infinite;
-} */
-
-/* @keyframes wiggle {
-  0% { transform: rotate(10deg); }
- 80% { transform: rotate(0deg); }
- 85% { transform: rotate(5deg); }
- 95% { transform: rotate(-5deg); }
-100% { transform: rotate(0deg); }
-} */
 
 .wrong {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
