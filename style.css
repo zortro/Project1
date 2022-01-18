@@ -133,7 +133,7 @@ p {
 }
 
 .answer-btn {
-    transition: all .5s ease;
+    transition: all 0.5s ease;
     background-size: 500%, 100%;
     background-image: linear-gradient(to right, red 25%, rgba(255, 255, 255, 0) 33%, rgba(255, 255, 255, 0) 66%, green 75%);
     background-position: center;
